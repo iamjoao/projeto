@@ -48,7 +48,6 @@ public class cliente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         campoCpf = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        campotelefone = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         campoEmail = new javax.swing.JTextField();
@@ -60,6 +59,7 @@ public class cliente extends javax.swing.JFrame {
         campoBairro = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
         campoRg = new javax.swing.JTextField();
+        campotelefone = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -187,12 +187,6 @@ public class cliente extends javax.swing.JFrame {
 
         jLabel9.setText("CPF:");
 
-        campotelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campotelefoneActionPerformed(evt);
-            }
-        });
-
         jLabel11.setText("Telefone:");
 
         jLabel13.setText("E-mail:");
@@ -209,6 +203,13 @@ public class cliente extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
+
+        try {
+            campotelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        campotelefone.setText("(  )     -    ");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -253,9 +254,9 @@ public class cliente extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(campoIdade)))
-                .addGap(313, 313, 313)
+                .addGap(255, 255, 255)
                 .addComponent(jButton11)
-                .addContainerGap(502, Short.MAX_VALUE))
+                .addContainerGap(560, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,10 +392,6 @@ public class cliente extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void campotelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campotelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campotelefoneActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -439,7 +436,7 @@ public class cliente extends javax.swing.JFrame {
     private javax.swing.JTextField campoNumero;
     private javax.swing.JTextField campoRg;
     private javax.swing.JTextField campoRua;
-    private javax.swing.JTextField campotelefone;
+    private javax.swing.JFormattedTextField campotelefone;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;

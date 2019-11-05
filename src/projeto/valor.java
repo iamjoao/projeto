@@ -1,8 +1,0 @@
-
-
-package projeto;
-
-
-class valor {
-
-}
