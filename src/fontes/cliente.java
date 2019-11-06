@@ -46,7 +46,6 @@ public class cliente extends javax.swing.JFrame {
         model = new javax.swing.JLabel();
         campoIdade = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        campoCpf = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -58,8 +57,9 @@ public class cliente extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         campoBairro = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
-        campoRg = new javax.swing.JTextField();
         campotelefone = new javax.swing.JFormattedTextField();
+        campoCpf = new javax.swing.JFormattedTextField();
+        campoRg = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -205,11 +205,27 @@ public class cliente extends javax.swing.JFrame {
         });
 
         try {
-            campotelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+            campotelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        campotelefone.setText("(  )     -    ");
+
+        try {
+            campoCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        campoCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoCpfActionPerformed(evt);
+            }
+        });
+
+        try {
+            campoRg.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -361,36 +377,39 @@ public class cliente extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
             Statement stm = con.createStatement();
-        if("".equals(nome)){
-            JOptionPane.showMessageDialog(null,"DIGITE O NOME DO CLIENTE \n","Cliente", JOptionPane.INFORMATION_MESSAGE);
-        }else if("".equals(idade)){
-            JOptionPane.showMessageDialog(null,"DIGITE A IDADE DO CLIENTE \n","Idade", JOptionPane.INFORMATION_MESSAGE);
-        }else if("".equals(rg)){
-            JOptionPane.showMessageDialog(null,"DIGITE O RG DO CLIENTE \n","RG", JOptionPane.INFORMATION_MESSAGE);
-        }else if("".equals(cpf)){
-            JOptionPane.showMessageDialog(null,"DIGITE O CPF DO CLIENTE \n","CPF", JOptionPane.INFORMATION_MESSAGE);
-        }else if("".equals(tel)){
-            JOptionPane.showMessageDialog(null,"DIGITE O TELEFONE DO CLIENTE \n","Telefone", JOptionPane.INFORMATION_MESSAGE);
-        }else if("".equals(email)){
-            JOptionPane.showMessageDialog(null,"DIGITE O EMAIL DO CLIENTE \n","E-mail", JOptionPane.INFORMATION_MESSAGE);
-        }else if("".equals(rua)){
-            JOptionPane.showMessageDialog(null,"DIGITE A RUA DO CLIENTE \n","Rua", JOptionPane.INFORMATION_MESSAGE);
-        }else if("".equals(num)){
-            JOptionPane.showMessageDialog(null,"DIGITE O NUMERO DA CASA DO CLIENTE \n","Numero da casa", JOptionPane.INFORMATION_MESSAGE);
-        }else if("".equals(bairro)){
-            JOptionPane.showMessageDialog(null,"DIGITE O BAIRRO DO CLIENTE \n","Bairro", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-            int executeUpdate = stm.executeUpdate("INSERT into cliente values('"+id+"','"+nome+"','"+idade+"','"+rg+"','"+cpf+"','"+tel+"','"+email+"','"+rua+"','"+num+"','"+bairro+"')");
-            JOptionPane.showMessageDialog(null,"CLIENTE CADASTRADO COM SUCESSO \n","", JOptionPane.INFORMATION_MESSAGE);
-        }
+            if("".equals(nome)){
+                JOptionPane.showMessageDialog(null,"DIGITE O NOME DO CLIENTE \n","Cliente", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(idade)){
+                JOptionPane.showMessageDialog(null,"DIGITE A IDADE DO CLIENTE \n","Idade", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(rg)){
+                JOptionPane.showMessageDialog(null,"DIGITE O RG DO CLIENTE \n","RG", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(cpf)){
+                JOptionPane.showMessageDialog(null,"DIGITE O CPF DO CLIENTE \n","CPF", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(tel)){
+                JOptionPane.showMessageDialog(null,"DIGITE O TELEFONE DO CLIENTE \n","Telefone", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(email)){
+                JOptionPane.showMessageDialog(null,"DIGITE O EMAIL DO CLIENTE \n","E-mail", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(rua)){
+                JOptionPane.showMessageDialog(null,"DIGITE A RUA DO CLIENTE \n","Rua", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(num)){
+                JOptionPane.showMessageDialog(null,"DIGITE O NUMERO DA CASA DO CLIENTE \n","Numero da casa", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(bairro)){
+                JOptionPane.showMessageDialog(null,"DIGITE O BAIRRO DO CLIENTE \n","Bairro", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                int executeUpdate = stm.executeUpdate("INSERT into cliente values('"+id+"','"+nome+"','"+idade+"','"+rg+"','"+cpf+"','"+tel+"','"+email+"','"+rua+"','"+num+"','"+bairro+"')");
+                JOptionPane.showMessageDialog(null,"CLIENTE CADASTRADO COM SUCESSO \n","", JOptionPane.INFORMATION_MESSAGE);
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void campoCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoCpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -429,12 +448,12 @@ public class cliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campoBairro;
-    private javax.swing.JTextField campoCpf;
+    private javax.swing.JFormattedTextField campoCpf;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JTextField campoIdade;
     private javax.swing.JTextField campoNome;
     private javax.swing.JTextField campoNumero;
-    private javax.swing.JTextField campoRg;
+    private javax.swing.JFormattedTextField campoRg;
     private javax.swing.JTextField campoRua;
     private javax.swing.JFormattedTextField campotelefone;
     private javax.swing.JButton jButton1;
