@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 public class principal extends javax.swing.JFrame {
     private cliente clin;
+    private funcionario fun;
     public int valor = 0, valor1 = 0, id;
     private String modelo, marca, placa, portas, ano, malas, preco, cambio,
             pessoas, banco, autonomia, combustivel, peso, tam, km, air, ar, direcao, trava, data, cor,test;
@@ -18,8 +19,6 @@ public class principal extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH); 
         Veiculos.setVisible(false);
         Cadastro.setVisible(false);
-        
-        
         setIconImage(getIconImage());
     }
     
@@ -94,7 +93,6 @@ public class principal extends javax.swing.JFrame {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1300, 700));
 
         Background.setBackground(new java.awt.Color(57, 64, 48));
         Background.setPreferredSize(new java.awt.Dimension(1300, 700));
@@ -121,6 +119,11 @@ public class principal extends javax.swing.JFrame {
         jButton4.setText("Entrada/Saída");
 
         jButton5.setText("Funcionário");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Veículo danificado");
 
@@ -445,9 +448,7 @@ public class principal extends javax.swing.JFrame {
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(model, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroLayout.createSequentialGroup()
-                                .addGap(0, 0, 0)
-                                .addComponent(caixaMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(caixaMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(CadastroLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -577,7 +578,7 @@ public class principal extends javax.swing.JFrame {
 
         ImageBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ImageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logoescuro.png"))); // NOI18N
-        Background.add(ImageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1410, 700));
+        Background.add(ImageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1410, 670));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -797,6 +798,13 @@ public class principal extends javax.swing.JFrame {
     private void caixaBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaBancoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_caixaBancoActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        fun = new funcionario();
+        fun.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
