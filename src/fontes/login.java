@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class login extends javax.swing.JFrame {
     private principal prin;
-    private String login1, senha;
+    private String login1, senha, cargo;
     public login() {
         initComponents();
     }
@@ -158,9 +158,12 @@ public class login extends javax.swing.JFrame {
             while(res.next()){
                 login1 = res.getString("email");
                 senha = res.getString("senha");
+                cargo = res.getString("cargo");
                 if(login1.compareTo(jTextField2.getText()) == 0 && senha.compareTo(jPasswordField1.getText())== 0){
                     prin = new principal();
                     prin.setVisible(true);
+                    DadosLogin d = new DadosLogin();
+                    d.setLogin(cargo);
                     this.dispose();
                 }else{
                     jLabel4.setText("Login ou senha incorreta");
@@ -187,4 +190,5 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
 }

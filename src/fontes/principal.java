@@ -14,12 +14,15 @@ public class principal extends javax.swing.JFrame {
     public int valor = 0, valor1 = 0, id;
     private String modelo, marca, placa, portas, ano, malas, preco, cambio,
             pessoas, banco, autonomia, combustivel, peso, tam, km, air, ar, direcao, trava, data, cor,test;
-    public principal() {
+    
+    public principal() {     
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH); 
         Veiculos.setVisible(false);
         Cadastro.setVisible(false);
         setIconImage(getIconImage());
+
+ 
     }
     
     @SuppressWarnings("unchecked")
@@ -584,11 +587,11 @@ public class principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 1410, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 1420, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
         );
 
         pack();
@@ -636,8 +639,11 @@ public class principal extends javax.swing.JFrame {
                 valor1 = 0;
                 valor = 0;
             }
-            
-
+            DadosLogin d = new DadosLogin();
+            String cargo = d.getLogin();
+        if(!"Gerente".equals(cargo)){
+            jButton8.setEnabled(false);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void caixaCombustivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaCombustivelActionPerformed
@@ -789,6 +795,7 @@ public class principal extends javax.swing.JFrame {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
         limparDados();
+        
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void campoPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPrecoActionPerformed
@@ -836,7 +843,7 @@ public class principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new principal().setVisible(true);
+                new login().setVisible(true);
             }
         });
     }
@@ -934,6 +941,7 @@ public class principal extends javax.swing.JFrame {
         campoData.setText("");
         caixaCor.setText("");
     }
+  
     public final java.awt.Image getIconImage(){
         java.awt.Image ICONE = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagens/logo2.png"));
         return ICONE;
