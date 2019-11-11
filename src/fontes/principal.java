@@ -1,6 +1,9 @@
 package fontes;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.sql.*;
 import java.util.logging.Level;
@@ -22,6 +25,10 @@ public class principal extends javax.swing.JFrame {
         Veiculos.setVisible(false);
         Cadastro.setVisible(false);
         setIconImage(getIconImage());
+        
+
+
+        
 
  
     }
@@ -186,10 +193,10 @@ public class principal extends javax.swing.JFrame {
                 .addComponent(jButton6)
                 .addGap(43, 43, 43)
                 .addComponent(jButton7)
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addContainerGap(527, Short.MAX_VALUE))
         );
 
-        Background.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 713));
+        Background.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 850));
 
         Veiculos.setBackground(new java.awt.Color(137, 202, 40));
 
@@ -268,7 +275,7 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Background.add(Veiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 147, 713));
+        Background.add(Veiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 147, 850));
 
         Cadastro.setBackground(new java.awt.Color(172, 191, 143));
 
@@ -594,11 +601,11 @@ public class principal extends javax.swing.JFrame {
                 .addGap(116, 116, 116))
         );
 
-        Background.add(Cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, -2, 1120, 740));
+        Background.add(Cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, -2, 1130, 850));
 
         ImageBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ImageBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logoescuro.png"))); // NOI18N
-        Background.add(ImageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1410, 670));
+        Background.add(ImageBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1420, 670));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -608,7 +615,7 @@ public class principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
 
         pack();
@@ -867,7 +874,7 @@ public class principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new login().setVisible(true);
+                new principal().setVisible(true);
             }
         });
     }
@@ -974,5 +981,16 @@ public class principal extends javax.swing.JFrame {
         java.awt.Image ICONE = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagens/logo2.png"));
         return ICONE;
     }
-
+    public static Point centralizarFrame (int width, int height){
+    return (
+        new Point (
+            ((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2) - (width/2),
+            ((int)Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2) - (height/2)));
+    }
+    public static Dimension redimensionarFrameTotal (){
+    return (
+        new Dimension (
+            (int) Toolkit.getDefaultToolkit ().getScreenSize ().getWidth (),
+            (int) Toolkit.getDefaultToolkit ().getScreenSize ().getHeight ()));
+}
 }
