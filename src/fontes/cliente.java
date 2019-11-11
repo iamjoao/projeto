@@ -183,7 +183,7 @@ public class cliente extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Idade:");
+        jLabel2.setText("Data de Nascimento");
 
         model.setText("Nome:");
 
@@ -195,7 +195,7 @@ public class cliente extends javax.swing.JFrame {
 
         jLabel13.setText("E-mail:");
 
-        jLabel15.setText("Rua:");
+        jLabel15.setText("Endereço:");
 
         jLabel17.setText("Numero:");
 

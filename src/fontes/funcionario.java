@@ -145,7 +145,7 @@ public class funcionario extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
           if(valor1 == 0){
-            jPanel2.setVisible(true);
+//            jPanel.setVisible(true);
             valor1 = 1;
         }else if(valor1 == 1){
             jPanel2.setVisible(false);
