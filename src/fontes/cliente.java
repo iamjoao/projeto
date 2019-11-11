@@ -1,5 +1,8 @@
 package fontes;
 
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -499,4 +502,16 @@ public class cliente extends javax.swing.JFrame {
     private javax.swing.JLabel model;
     private javax.swing.JPanel opcoes;
     // End of variables declaration//GEN-END:variables
+    public static Point centralizarFrame (int width, int height){
+    return (
+        new Point (
+            ((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2) - (width/2),
+            ((int)Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2) - (height/2)));
+    }
+    public static Dimension redimensionarFrameTotal (){
+    return (
+        new Dimension (
+            (int) Toolkit.getDefaultToolkit ().getScreenSize ().getWidth (),
+            (int) Toolkit.getDefaultToolkit ().getScreenSize ().getHeight ()));
+}
 }
