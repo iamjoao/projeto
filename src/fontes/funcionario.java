@@ -105,7 +105,7 @@ public class funcionario extends javax.swing.JFrame {
                 .addComponent(jButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6)
-                .addContainerGap(443, Short.MAX_VALUE))
+                .addContainerGap(504, Short.MAX_VALUE))
         );
 
         Background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
