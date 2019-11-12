@@ -77,7 +77,8 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -117,9 +118,9 @@ public class login extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -160,6 +161,13 @@ public class login extends javax.swing.JFrame {
                 login1 = res.getString("email");
                 senha = res.getString("senha");
                 cargo = res.getString("cargo");
+                if(("".equals(login1))&("".equals(senha))) {
+                        jLabel4.setText("Digite o login e a senha");
+                    }else if("".equals(login1)){
+                        jLabel4.setText("Digite o login");
+                    }else if("".equals(login1)){
+                        jLabel4.setText("Digite a senha");
+                    }
                 if(login1.compareTo(jTextField2.getText()) == 0 && senha.compareTo(jPasswordField1.getText())== 0){
                     prin = new principal();
                     prin.setVisible(true);
@@ -167,7 +175,8 @@ public class login extends javax.swing.JFrame {
                     d.setLogin(cargo);
                     this.dispose();
                 }else{
-                    jLabel4.setText("Login ou senha incorreta");
+//                        jLabel4.setText("Login ou senha incorreta");
+                    
                 }
             }
        }
