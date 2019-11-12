@@ -175,7 +175,6 @@ public class login extends javax.swing.JFrame {
                     this.dispose();
                     }else{
                     jLabel4.setText("Login ou senha incorreta");
-                    
                 }
             }
        }
