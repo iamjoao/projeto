@@ -161,14 +161,6 @@ public class login extends javax.swing.JFrame {
                 login1 = res.getString("email");
                 senha = res.getString("senha");
                 cargo = res.getString("cargo");
-//                if(("".equals(login1))&("".equals(senha))) {
-//                        jLabel4.setText("Digite o login e a senha");
-//                    }else if("".equals(login1)){
-//                        jLabel4.setText("Digite o login");
-//                    }else if("".equals(login1)){
-//                        jLabel4.setText("Digite a senha");
-//                    }
-                    jLabel4.setText("Login ou senha incorreta");
                 if(login1.compareTo(jTextField2.getText()) == 0 && senha.compareTo(jPasswordField1.getText())== 0){
                     prin = new principal();
                     prin.setVisible(true);
