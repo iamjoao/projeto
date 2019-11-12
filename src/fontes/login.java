@@ -151,7 +151,6 @@ public class login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        // TODO add your handling code here:
        jButton1.setBackground(new Color(92, 140,20));
-
        try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
@@ -161,16 +160,21 @@ public class login extends javax.swing.JFrame {
                 login1 = res.getString("email");
                 senha = res.getString("senha");
                 cargo = res.getString("cargo");
-                if(login1.compareTo(jTextField2.getText()) == 0 && senha.compareTo(jPasswordField1.getText())== 0){
+                if(("".equals(jTextField2.getText()))&&("".equals(jPasswordField1.getText()))) {
+                        jLabel4.setText("Digite o login e a senha");
+                    }else if("".equals(jTextField2.getText())){
+                        jLabel4.setText("Digite o login");
+                    }else if("".equals(jPasswordField1.getText())){
+                        jLabel4.setText("Digite a senha");
+                    }else if(login1.compareTo(jTextField2.getText()) == 0 && senha.compareTo(jPasswordField1.getText())== 0){
                     prin = new principal();
                     prin.setVisible(true);
                     DadosLogin d = new DadosLogin();
                     d.setLogin(cargo);
                     this.dispose();
-                }else{
+                    }else{
                         jLabel4.setText("Login ou senha incorreta");
-                    
-                }
+                    }
             }
        }
        catch (ClassNotFoundException e){
