@@ -62,7 +62,7 @@ public class login extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jButton1.setText("ENTRAR");
         jButton1.setAutoscrolls(true);
-        jButton1.setBorder(null);
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton1MouseEntered(evt);
@@ -77,7 +77,7 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -118,11 +118,11 @@ public class login extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(1, 1, 1)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -151,7 +151,7 @@ public class login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        // TODO add your handling code here:
        jButton1.setBackground(new Color(92, 140,20));
-       
+
        try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
@@ -161,13 +161,14 @@ public class login extends javax.swing.JFrame {
                 login1 = res.getString("email");
                 senha = res.getString("senha");
                 cargo = res.getString("cargo");
-                if(("".equals(login1))&("".equals(senha))) {
-                        jLabel4.setText("Digite o login e a senha");
-                    }else if("".equals(login1)){
-                        jLabel4.setText("Digite o login");
-                    }else if("".equals(login1)){
-                        jLabel4.setText("Digite a senha");
-                    }
+//                if(("".equals(login1))&("".equals(senha))) {
+//                        jLabel4.setText("Digite o login e a senha");
+//                    }else if("".equals(login1)){
+//                        jLabel4.setText("Digite o login");
+//                    }else if("".equals(login1)){
+//                        jLabel4.setText("Digite a senha");
+//                    }
+                    jLabel4.setText("Login ou senha incorreta");
                 if(login1.compareTo(jTextField2.getText()) == 0 && senha.compareTo(jPasswordField1.getText())== 0){
                     prin = new principal();
                     prin.setVisible(true);
@@ -175,7 +176,7 @@ public class login extends javax.swing.JFrame {
                     d.setLogin(cargo);
                     this.dispose();
                 }else{
-//                        jLabel4.setText("Login ou senha incorreta");
+                        jLabel4.setText("Login ou senha incorreta");
                     
                 }
             }
