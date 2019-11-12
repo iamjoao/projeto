@@ -1,5 +1,6 @@
 package fontes;
 
+import java.awt.Color;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -30,7 +31,6 @@ public class login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
-        setAlwaysOnTop(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(230, 255, 191));
@@ -63,6 +63,11 @@ public class login extends javax.swing.JFrame {
         jButton1.setText("ENTRAR");
         jButton1.setAutoscrolls(true);
         jButton1.setBorder(null);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -169,6 +174,10 @@ public class login extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
