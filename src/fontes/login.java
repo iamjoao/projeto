@@ -1,6 +1,7 @@
 package fontes;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -8,7 +9,8 @@ public class login extends javax.swing.JFrame {
     private principal prin;
     private String login1, senha, cargo;
     public login() {
-        initComponents();
+        setIconImage(getIconImage());
+    initComponents();
     }
 
     /**
@@ -171,7 +173,7 @@ public class login extends javax.swing.JFrame {
                     d.setLogin(cargo);
                     this.dispose();
                     }else{
-                        jLabel4.setText("Login ou senha incorreta");
+                        jLabel4.setText("Login ou senha incorreto!");
                     }
             }
        }
@@ -205,5 +207,8 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
-
+    public final java.awt.Image getIconImage(){
+        java.awt.Image ICONE = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagens/logo60px.png"));
+        return ICONE;
+    }
 }

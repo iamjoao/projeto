@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.image.Image;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class principal extends javax.swing.JFrame {
     private cliente clin;
@@ -21,11 +22,9 @@ public class principal extends javax.swing.JFrame {
     
     public principal() {     
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH); 
         Veiculos.setVisible(false);
         Cadastro.setVisible(false);
         setIconImage(getIconImage());
-        
     }
     
     @SuppressWarnings("unchecked")
@@ -96,7 +95,13 @@ public class principal extends javax.swing.JFrame {
 
         setBackground(new java.awt.Color(57, 64, 48));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new java.awt.Dimension(1300, 600));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         Background.setBackground(new java.awt.Color(57, 64, 48));
         Background.setPreferredSize(new java.awt.Dimension(1300, 700));
@@ -197,13 +202,10 @@ public class principal extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
-                "Title 1"
+                "Marcas"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -221,7 +223,7 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton8)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
 
@@ -264,7 +266,6 @@ public class principal extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel12.setText("Cambio:");
 
-        caixaMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione uma opção", "Volkswagen", "Fiat", "Chevrolet", "Toyota", "Mercedes", "Peugeot" }));
         caixaMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caixaMarcaActionPerformed(evt);
@@ -514,7 +515,7 @@ public class principal extends javax.swing.JFrame {
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(4, 4, 4)
                                 .addComponent(caixaCor, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         CadastroLayout.setVerticalGroup(
             CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -656,7 +657,7 @@ public class principal extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton12)
                     .addComponent(jButton11))
-                .addContainerGap())
+                .addGap(318, 318, 318))
         );
 
         javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
@@ -667,28 +668,32 @@ public class principal extends javax.swing.JFrame {
                 .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Veiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Cadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         BackgroundLayout.setVerticalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Cadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Veiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Cadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 1434, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 1306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -897,6 +902,10 @@ public class principal extends javax.swing.JFrame {
             //        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.consultarDados("SELECT * FROM marcas_automovel ORDER BY id ASC");
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -944,7 +953,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> caixaCombustivel;
     private javax.swing.JTextField caixaCor;
     private javax.swing.JComboBox<String> caixaDirecao;
-    private javax.swing.JComboBox<String> caixaMarca;
+    private javax.swing.JComboBox<Object> caixaMarca;
     private javax.swing.JComboBox<String> caixaPortas;
     private javax.swing.JComboBox<String> caixaTrava;
     private javax.swing.JTextField campoAno;
@@ -1027,7 +1036,35 @@ public class principal extends javax.swing.JFrame {
     }
   
     public final java.awt.Image getIconImage(){
-        java.awt.Image ICONE = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagens/logo2.png"));
+        java.awt.Image ICONE = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagens/logo60px.png"));
         return ICONE;
+    }
+    public void consultarDados(String sql) 
+    {
+        try
+        {
+             Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/projeto","root","");
+             PreparedStatement banco = (PreparedStatement)con.prepareStatement(sql);
+             banco.execute(); 
+             ResultSet dados = banco.executeQuery(sql);
+
+             DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+             model.setNumRows(0);
+
+             while(dados.next())
+             {
+                 model.addRow(new Object[] 
+                 { 
+                    dados.getString("marcas")
+                      
+                 }); 
+            } 
+            banco.close();
+            con.close();
+        }
+        catch (SQLException e)
+        {
+              System.out.println("Erro: " +e);
+        }
     }
 }
