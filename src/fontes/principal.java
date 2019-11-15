@@ -1,9 +1,7 @@
 package fontes;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridBagLayout;
-import java.awt.Point;
 import java.awt.Toolkit;
 import java.sql.*;
 import java.util.logging.Level;
@@ -19,12 +17,19 @@ public class principal extends javax.swing.JFrame {
     public int valor = 0, valor1 = 0, id;
     private String modelo, marca, placa, portas, ano, malas, preco, cambio,
             pessoas, banco, autonomia, combustivel, peso, tam, km, air, ar, direcao, trava, data, cor,test;
-    
-    public principal() {     
+    public principal() {
         initComponents();
+////        automoveis p1 = new automoveis();
+//        p1.setSize(400,300);
+//        p1.setLocation(5, 5);
+//        Background.removeAll();
+//        Background.add(p1, BorderLayout.CENTER);
+//        Background.revalidate();
+//        Background.repaint();
         Veiculos.setVisible(false);
         Cadastro.setVisible(false);
         setIconImage(getIconImage());
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -95,7 +100,6 @@ public class principal extends javax.swing.JFrame {
 
         setBackground(new java.awt.Color(57, 64, 48));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1300, 600));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -223,8 +227,8 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton8)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Cadastro.setBackground(new java.awt.Color(230, 255, 191));
@@ -862,6 +866,10 @@ public class principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.consultarDados("SELECT * FROM marcas_automovel ORDER BY id ASC");
+    }//GEN-LAST:event_formWindowOpened
+
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         login = new login();
@@ -901,10 +909,6 @@ public class principal extends javax.swing.JFrame {
             //            jButton8.setEnabled(false);
             //        }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        this.consultarDados("SELECT * FROM marcas_automovel ORDER BY id ASC");
-    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
