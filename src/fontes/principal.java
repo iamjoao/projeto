@@ -19,7 +19,7 @@ public class principal extends javax.swing.JFrame {
             pessoas, banco, autonomia, combustivel, peso, tam, km, air, ar, direcao, trava, data, cor,test;
     public principal() {
         initComponents();
-////        automoveis p1 = new automoveis();
+//        automoveis p1 = new automoveis();
 //        p1.setSize(400,300);
 //        p1.setLocation(5, 5);
 //        Background.removeAll();
@@ -212,6 +212,11 @@ public class principal extends javax.swing.JFrame {
                 "Marcas"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout VeiculosLayout = new javax.swing.GroupLayout(Veiculos);
@@ -868,6 +873,7 @@ public class principal extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.consultarDados("SELECT * FROM marcas_automovel ORDER BY id ASC");
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -909,6 +915,12 @@ public class principal extends javax.swing.JFrame {
             //            jButton8.setEnabled(false);
             //        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        Cadastro.setVisible(false);
+        valor = 0;
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments

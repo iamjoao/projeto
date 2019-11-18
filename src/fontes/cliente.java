@@ -68,7 +68,6 @@ public class cliente extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
 
-        setMinimumSize(new java.awt.Dimension(0, 0));
         setPreferredSize(new java.awt.Dimension(1300, 600));
 
         jPanel4.setBackground(new java.awt.Color(57, 64, 48));
