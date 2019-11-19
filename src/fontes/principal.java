@@ -13,6 +13,7 @@ public class principal extends javax.swing.JFrame {
     private cliente clin;
     private funcionario fun;
     private login login;
+    private aluguel aluguel;
     public int valor = 0, valor1 = 0, id;
     private String modelo, marca, placa, portas, ano, malas, preco, cambio,
             pessoas, banco, autonomia, combustivel, peso, tam, km, air, ar, direcao, trava, data, cor,test;
@@ -50,6 +51,8 @@ public class principal extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         Cadastro = new javax.swing.JPanel();
         campoModelo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -158,6 +161,11 @@ public class principal extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton3MouseExited(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -286,12 +294,28 @@ public class principal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Carros"
+            }
+        ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
         javax.swing.GroupLayout VeiculosLayout = new javax.swing.GroupLayout(Veiculos);
         Veiculos.setLayout(VeiculosLayout);
         VeiculosLayout.setHorizontalGroup(
             VeiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         VeiculosLayout.setVerticalGroup(
             VeiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,8 +323,10 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton8)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Cadastro.setBackground(new java.awt.Color(230, 255, 191));
@@ -317,12 +343,6 @@ public class principal extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel5.setText("Ano:");
 
-        campoPreco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPrecoActionPerformed(evt);
-            }
-        });
-
         jLabel9.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel9.setText("Preço:");
 
@@ -335,11 +355,7 @@ public class principal extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel12.setText("Cambio:");
 
-        caixaMarca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixaMarcaActionPerformed(evt);
-            }
-        });
+        caixaMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Volkswagen" }));
 
         jLabel13.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel13.setText("Ocupantes:");
@@ -348,30 +364,14 @@ public class principal extends javax.swing.JFrame {
         jLabel14.setText("Banco:");
 
         caixaBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione uma opção", "Couro", "Tecido" }));
-        caixaBanco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixaBancoActionPerformed(evt);
-            }
-        });
 
         jLabel15.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel15.setText("Autonomia:");
-
-        campoAutonomia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoAutonomiaActionPerformed(evt);
-            }
-        });
 
         jLabel16.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel16.setText("Combustivel");
 
         caixaCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione uma opção", "Gasolina", "Álcool", "Flex" }));
-        caixaCombustivel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixaCombustivelActionPerformed(evt);
-            }
-        });
 
         jLabel17.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel17.setText("Peso(Kg):");
@@ -382,11 +382,6 @@ public class principal extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 campoPesoFocusLost(evt);
-            }
-        });
-        campoPeso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPesoActionPerformed(evt);
             }
         });
         campoPeso.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -417,18 +412,8 @@ public class principal extends javax.swing.JFrame {
         jLabel7.setText("Data de Inspeção:");
 
         caixaCambio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione uma opção", "Manual", "Automático" }));
-        caixaCambio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixaCambioActionPerformed(evt);
-            }
-        });
 
         caixaAirbag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione uma opção", "Sim", "Não" }));
-        caixaAirbag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixaAirbagActionPerformed(evt);
-            }
-        });
 
         caixaAr.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione uma opção", "Sim", "Não" }));
 
@@ -453,11 +438,6 @@ public class principal extends javax.swing.JFrame {
         });
 
         caixaPortas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione uma opção", "2", "3", "4" }));
-        caixaPortas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixaPortasActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel8.setText("Cor:");
@@ -795,97 +775,9 @@ public class principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoDataActionPerformed
 
-    private void caixaPortasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaPortasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caixaPortasActionPerformed
-
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        modelo = campoModelo.getText();
-        marca = (String) caixaMarca.getSelectedItem();
-        placa = campoPlaca.getText();
-        ano = campoAno.getText();
-        preco = campoPreco.getText();
-        portas = (String)caixaPortas.getSelectedItem();
-        malas = campoPortamalas.getText();
-        cambio = (String) caixaCambio.getSelectedItem();
-        pessoas = campoOcupantes.getText();
-        banco = (String) caixaBanco.getSelectedItem();
-        autonomia = campoAutonomia.getText();
-        combustivel = (String) caixaCombustivel.getSelectedItem();
-        peso = campoPeso.getText();
-        tam = campoTamanho.getText();
-        km = campoKilometragem.getText();
-        air = (String) caixaAirbag.getSelectedItem();
-        ar = (String) caixaAr.getSelectedItem();
-        direcao = (String) caixaDirecao.getSelectedItem();
-        trava = (String) caixaTrava.getSelectedItem();
-        data = campoData.getText();
-        cor = caixaCor.getText();
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
-            Statement stm = con.createStatement();
-
-            if("".equals(modelo)){
-                JOptionPane.showMessageDialog(null,"DIGITE O MODELO DO CARRO \n","Modelo", JOptionPane.INFORMATION_MESSAGE);
-            }else if("Selecione uma opção".equals(marca)){
-                JOptionPane.showMessageDialog(null,"SELECIONE A MARCA DO CARRO \n","Marca", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(placa)){
-                JOptionPane.showMessageDialog(null,"DIGITE A PLACA DO CARRO \n","Placa", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(ano)){
-                JOptionPane.showMessageDialog(null,"DIGITE O ANO DO CARRO \n","Ano", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(preco)){
-                JOptionPane.showMessageDialog(null,"DIGITE PREÇO DO CARRO \n","Preço", JOptionPane.INFORMATION_MESSAGE);
-            }else if("Selecione uma opção".equals(portas)){
-                JOptionPane.showMessageDialog(null,"SELECIONE A QUANTIDADE DE PORTAS DO CARRO \n","Portas", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(malas)){
-                JOptionPane.showMessageDialog(null,"DIGITE A QUANTIDADE DE LITROS DO PORTA MALAS DO CARRO \n","Porta Malas", JOptionPane.INFORMATION_MESSAGE);
-            }else if("Selecione uma opção".equals(cambio)){
-                JOptionPane.showMessageDialog(null,"SELECIONE A TRANSMISSÃO DO CÂMBIO \n","Câmbio", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(pessoas)){
-                JOptionPane.showMessageDialog(null,"DIGITE A CAPACIDADE DE PESSOAS DO CARRO \n","Capacidade", JOptionPane.INFORMATION_MESSAGE);
-            }else if("Selecione uma opção".equals(banco)){
-                JOptionPane.showMessageDialog(null,"SELECIONE O MATERIAL DO BANCO DO CARRO \n","Material do Banco", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(autonomia)){
-                JOptionPane.showMessageDialog(null,"DIGITE A AUTONOMIA DO CARRO \n","Autonomia", JOptionPane.INFORMATION_MESSAGE);
-            }else if("Selecione uma opção".equals(combustivel)){
-                JOptionPane.showMessageDialog(null,"SELECIONE O TIPO DE COMBUSTÍVEL DO CARRO \n","Combustível", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(peso)){
-                JOptionPane.showMessageDialog(null,"DIGITE O PESO DO CARRO \n","Peso", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(tam)){
-                JOptionPane.showMessageDialog(null,"DIGITE O TAMANHO DO CARRO \n","Tamanho", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(km)){
-                JOptionPane.showMessageDialog(null,"DIGITE A KILOMETRAGEM DO CARRO \n","Kilometragem", JOptionPane.INFORMATION_MESSAGE);
-            }else if("Selecione uma opção".equals(air)){
-                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO PARA O AIRBAG\n","AirBag", JOptionPane.INFORMATION_MESSAGE);
-            }else if("Selecione uma opção".equals(ar)){
-                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO PARA O ARCONDICIONADO\n","ArCondicionado", JOptionPane.INFORMATION_MESSAGE);
-            }else if("Selecione uma opção".equals(direcao)){
-                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO A DIRAÇÃO HIDRÁULICA\n","Direção", JOptionPane.INFORMATION_MESSAGE);
-            }else if("Selecione uma opção".equals(trava)){
-                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO PARA TRAVA ELÉTRICA\n","Trava Elétrica", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(data)){
-                JOptionPane.showMessageDialog(null,"DIGITE A DATA DA ÚLTIMA INSPEÇÃO DO CARRO \n","Kilometragem", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                int executeUpdate = stm.executeUpdate("INSERT into automovel values('"+id+"','"+preco+"','"+placa+"','"+ano+"','"+cor+"','"+modelo+"','"+marca+"'"
-                    + ",'"+portas+"','"+malas+"','"+cambio+"','"+pessoas+"','"+banco+"','"+autonomia+"','"+combustivel+"','"+peso+"'"
-                    + ",'"+tam+"','"+km+"','"+air+"','"+ar+"','"+direcao+"','"+trava+"','"+data+"')");
-                JOptionPane.showMessageDialog(null,"Cadastro efetuado com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
-                limparDados();
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        insirirDados();
     }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void caixaAirbagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaAirbagActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caixaAirbagActionPerformed
-
-    private void caixaCambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaCambioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caixaCambioActionPerformed
 
     private void campoPesoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoPesoKeyPressed
         // TODO add your handling code here:
@@ -894,11 +786,6 @@ public class principal extends javax.swing.JFrame {
             campoPeso.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_campoPesoKeyPressed
-
-    private void campoPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPesoActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_campoPesoActionPerformed
 
     private void campoPesoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campoPesoFocusLost
         // TODO add your handling code here:
@@ -915,26 +802,6 @@ public class principal extends javax.swing.JFrame {
             campoPeso.setCaretColor(Color.BLACK);
         }
     }//GEN-LAST:event_campoPesoFocusGained
-
-    private void caixaCombustivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaCombustivelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caixaCombustivelActionPerformed
-
-    private void campoAutonomiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoAutonomiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoAutonomiaActionPerformed
-
-    private void caixaBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaBancoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caixaBancoActionPerformed
-
-    private void caixaMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaMarcaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caixaMarcaActionPerformed
-
-    private void campoPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPrecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoPrecoActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
@@ -1008,39 +875,39 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseEntered
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
-        jButton1.setBackground(new Color(137, 202, 40));
+        jButton2.setBackground(new Color(137, 202, 40));
     }//GEN-LAST:event_jButton2MouseEntered
 
     private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
-        jButton1.setBackground(new Color(137, 202, 40));
+        jButton3.setBackground(new Color(137, 202, 40));
     }//GEN-LAST:event_jButton3MouseEntered
 
     private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
-        jButton1.setBackground(new Color(137, 202, 40));
+        jButton4.setBackground(new Color(137, 202, 40));
     }//GEN-LAST:event_jButton4MouseEntered
 
     private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
-        jButton1.setBackground(new Color(137, 202, 40));
+        jButton5.setBackground(new Color(137, 202, 40));
     }//GEN-LAST:event_jButton5MouseEntered
 
     private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
-        jButton1.setBackground(new Color(137, 202, 40));
+        jButton6.setBackground(new Color(137, 202, 40));
     }//GEN-LAST:event_jButton6MouseEntered
 
     private void jButton7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseEntered
-        jButton1.setBackground(new Color(137, 202, 40));
+        jButton7.setBackground(new Color(137, 202, 40));
     }//GEN-LAST:event_jButton7MouseEntered
 
     private void jButton8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseEntered
-        jButton1.setBackground(new Color(137, 202, 40));
+        jButton8.setBackground(new Color(137, 202, 40));
     }//GEN-LAST:event_jButton8MouseEntered
 
     private void jButton11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseEntered
-        jButton1.setBackground(new Color(137, 202, 40));
+        jButton11.setBackground(new Color(137, 202, 40));
     }//GEN-LAST:event_jButton11MouseEntered
 
     private void jButton12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseEntered
-        jButton1.setBackground(new Color(137, 202, 40));
+        jButton12.setBackground(new Color(137, 202, 40));
     }//GEN-LAST:event_jButton12MouseEntered
 
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
@@ -1048,40 +915,51 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseExited
 
     private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
-        jButton1.setBackground(new Color(172, 191, 143));
+        jButton2.setBackground(new Color(172, 191, 143));
     }//GEN-LAST:event_jButton2MouseExited
 
     private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
-        jButton1.setBackground(new Color(172, 191, 143));
+        jButton3.setBackground(new Color(172, 191, 143));
     }//GEN-LAST:event_jButton3MouseExited
 
     private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
-        jButton1.setBackground(new Color(172, 191, 143));
+        jButton4.setBackground(new Color(172, 191, 143));
     }//GEN-LAST:event_jButton4MouseExited
 
     private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
-        jButton1.setBackground(new Color(172, 191, 143));
+        jButton5.setBackground(new Color(172, 191, 143));
     }//GEN-LAST:event_jButton5MouseExited
 
     private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
-        jButton1.setBackground(new Color(172, 191, 143));
+        jButton6.setBackground(new Color(172, 191, 143));
     }//GEN-LAST:event_jButton6MouseExited
 
     private void jButton7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseExited
-        jButton1.setBackground(new Color(172, 191, 143));
+        jButton7.setBackground(new Color(172, 191, 143));
     }//GEN-LAST:event_jButton7MouseExited
 
     private void jButton8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseExited
-        jButton1.setBackground(new Color(172, 191, 143));
+        jButton8.setBackground(new Color(172, 191, 143));
     }//GEN-LAST:event_jButton8MouseExited
 
     private void jButton11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseExited
-        jButton1.setBackground(new Color(172, 191, 143));
+        jButton11.setBackground(new Color(172, 191, 143));
     }//GEN-LAST:event_jButton11MouseExited
 
     private void jButton12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseExited
-        jButton1.setBackground(new Color(172, 191, 143));
+        jButton12.setBackground(new Color(172, 191, 143));
     }//GEN-LAST:event_jButton12MouseExited
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        aluguel = new aluguel();
+        aluguel.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2MouseClicked
     
     /**
      * @param args the command line arguments
@@ -1177,13 +1055,93 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel marcas;
     private javax.swing.JLabel model;
     // End of variables declaration//GEN-END:variables
 
     private void setIconImage(Image iconImage) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public void insirirDados(){
+        modelo = campoModelo.getText();
+        marca = (String) caixaMarca.getSelectedItem();
+        placa = campoPlaca.getText();
+        ano = campoAno.getText();
+        preco = campoPreco.getText();
+        portas = (String)caixaPortas.getSelectedItem();
+        malas = campoPortamalas.getText();
+        cambio = (String) caixaCambio.getSelectedItem();
+        pessoas = campoOcupantes.getText();
+        banco = (String) caixaBanco.getSelectedItem();
+        autonomia = campoAutonomia.getText();
+        combustivel = (String) caixaCombustivel.getSelectedItem();
+        peso = campoPeso.getText();
+        tam = campoTamanho.getText();
+        km = campoKilometragem.getText();
+        air = (String) caixaAirbag.getSelectedItem();
+        ar = (String) caixaAr.getSelectedItem();
+        direcao = (String) caixaDirecao.getSelectedItem();
+        trava = (String) caixaTrava.getSelectedItem();
+        data = campoData.getText();
+        cor = caixaCor.getText();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+            Statement stm = con.createStatement();
+
+            if("".equals(modelo)){
+                JOptionPane.showMessageDialog(null,"DIGITE O MODELO DO CARRO \n","Modelo", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(marca)){
+                JOptionPane.showMessageDialog(null,"SELECIONE A MARCA DO CARRO \n","Marca", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(placa)){
+                JOptionPane.showMessageDialog(null,"DIGITE A PLACA DO CARRO \n","Placa", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(ano)){
+                JOptionPane.showMessageDialog(null,"DIGITE O ANO DO CARRO \n","Ano", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(preco)){
+                JOptionPane.showMessageDialog(null,"DIGITE PREÇO DO CARRO \n","Preço", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(portas)){
+                JOptionPane.showMessageDialog(null,"SELECIONE A QUANTIDADE DE PORTAS DO CARRO \n","Portas", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(malas)){
+                JOptionPane.showMessageDialog(null,"DIGITE A QUANTIDADE DE LITROS DO PORTA MALAS DO CARRO \n","Porta Malas", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(cambio)){
+                JOptionPane.showMessageDialog(null,"SELECIONE A TRANSMISSÃO DO CÂMBIO \n","Câmbio", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(pessoas)){
+                JOptionPane.showMessageDialog(null,"DIGITE A CAPACIDADE DE PESSOAS DO CARRO \n","Capacidade", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(banco)){
+                JOptionPane.showMessageDialog(null,"SELECIONE O MATERIAL DO BANCO DO CARRO \n","Material do Banco", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(autonomia)){
+                JOptionPane.showMessageDialog(null,"DIGITE A AUTONOMIA DO CARRO \n","Autonomia", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(combustivel)){
+                JOptionPane.showMessageDialog(null,"SELECIONE O TIPO DE COMBUSTÍVEL DO CARRO \n","Combustível", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(peso)){
+                JOptionPane.showMessageDialog(null,"DIGITE O PESO DO CARRO \n","Peso", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(tam)){
+                JOptionPane.showMessageDialog(null,"DIGITE O TAMANHO DO CARRO \n","Tamanho", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(km)){
+                JOptionPane.showMessageDialog(null,"DIGITE A KILOMETRAGEM DO CARRO \n","Kilometragem", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(air)){
+                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO PARA O AIRBAG\n","AirBag", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(ar)){
+                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO PARA O ARCONDICIONADO\n","ArCondicionado", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(direcao)){
+                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO A DIRAÇÃO HIDRÁULICA\n","Direção", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(trava)){
+                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO PARA TRAVA ELÉTRICA\n","Trava Elétrica", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(data)){
+                JOptionPane.showMessageDialog(null,"DIGITE A DATA DA ÚLTIMA INSPEÇÃO DO CARRO \n","Kilometragem", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                int executeUpdate = stm.executeUpdate("INSERT into automovel values('"+id+"','"+preco+"','"+placa+"','"+ano+"','"+cor+"','"+modelo+"','"+marca+"'"
+                    + ",'"+portas+"','"+malas+"','"+cambio+"','"+pessoas+"','"+banco+"','"+autonomia+"','"+combustivel+"','"+peso+"'"
+                    + ",'"+tam+"','"+km+"','"+air+"','"+ar+"','"+direcao+"','"+trava+"','"+data+"')");
+                JOptionPane.showMessageDialog(null,"Cadastro efetuado com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                limparDados();
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public void limparDados(){
         campoModelo.setText("");
@@ -1198,10 +1156,10 @@ public class principal extends javax.swing.JFrame {
         caixaBanco.setSelectedItem("Selecione uma opção");
         campoAutonomia.setText("");
         caixaCombustivel.setSelectedItem("Selecione uma opção");
-        
-        campoPeso.setText("");
-        
-        
+        if(!"".equals(campoPeso)){
+          campoPeso.setText("(EX: 950)");
+          campoPeso.setForeground(new Color(169, 169, 169)); 
+        }
         campoTamanho.setText("");
         campoKilometragem.setText("");
         caixaAirbag.setSelectedItem("Selecione uma opção");
@@ -1210,8 +1168,7 @@ public class principal extends javax.swing.JFrame {
         caixaTrava.setSelectedItem("Selecione uma opção");
         campoData.setText("");
         caixaCor.setText("");
-    }
-  
+    }  
     public final java.awt.Image getIconImage(){
         java.awt.Image ICONE = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagens/logo60px.png"));
         return ICONE;
