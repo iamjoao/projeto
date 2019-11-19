@@ -36,6 +36,7 @@ public class principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
         Background = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -105,7 +106,7 @@ public class principal extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(960, 500));
         setMinimumSize(new java.awt.Dimension(960, 500));
-        setPreferredSize(new java.awt.Dimension(960, 500));
+        setPreferredSize(new java.awt.Dimension(940, 500));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -272,7 +273,7 @@ public class principal extends javax.swing.JFrame {
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton7)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Background.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
@@ -774,13 +775,13 @@ public class principal extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:      
         if (valor == 0) {
-            // ALTERAÇÃO DE COR DO BOTÃO
+            // ALTERAÇÃO DE COR DO PAINEL
             Veiculos.setBackground(new Color(92, 140, 20));
             
             Cadastro.setVisible(true);
             valor = 1;
         }else if(valor == 1){
-            // ALTERAÇÃO DE COR DO BOTÃO
+            // ALTERAÇÃO DE COR DO PAINEL
             Veiculos.setBackground(new Color(230, 255, 191));
             
             Cadastro.setVisible(false);
@@ -1038,6 +1039,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel marcas;
