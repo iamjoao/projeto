@@ -149,8 +149,9 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       // TODO add your handling code here:
-       jButton1.setBackground(new Color(92, 140,20));
+       // ALTERAÇÃO DE COR DO BOTÃO:
+       jButton1.setBackground(new Color(92, 140, 20));
+       
        try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
