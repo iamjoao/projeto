@@ -491,10 +491,15 @@ public class cliente extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        clin = new cliente();
-        clin.setVisible(true);
-
-        this.dispose();
+        if(valor1 == 0){
+            opcoes.setVisible(true);
+            valor1 = 1;
+        }else if(valor1 == 1){
+            opcoes.setVisible(false);
+            cadastro.setVisible(false);
+            valor1 = 0;
+            valor = 0;
+        }     
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
