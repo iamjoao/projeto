@@ -14,6 +14,7 @@ public class principal extends javax.swing.JFrame {
     private funcionario fun;
     private login login;
     private aluguel aluguel;
+    private String dado;  
     public int valor = 0, valor1 = 0, id;
     private String modelo, marca, placa, portas, ano, malas, preco, cambio,
             pessoas, banco, autonomia, combustivel, peso, tam, km, air, ar, direcao, trava, data, cor,test;
@@ -54,6 +55,7 @@ public class principal extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
         Cadastro = new javax.swing.JPanel();
         campoModelo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -338,6 +340,10 @@ public class principal extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(VeiculosLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         VeiculosLayout.setVerticalGroup(
             VeiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -348,7 +354,9 @@ public class principal extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         Background.add(Veiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, -1, 500));
@@ -787,7 +795,6 @@ public class principal extends javax.swing.JFrame {
             Cadastro.setVisible(false);
             valor = 0;
         }
-
         campoPeso.setText("(EX: 950)");
         campoPeso.setForeground(new Color(169, 169, 169));
 
@@ -795,7 +802,6 @@ public class principal extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.consultarDados("SELECT * FROM marcas_automovel ORDER BY id ASC");
-        
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -849,6 +855,9 @@ public class principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Cadastro.setVisible(false);
         valor = 0;
+        int linha = jTable1.getSelectedRow(); // retorna a linha selecionada pelo usuario
+        dado = (jTable1.getValueAt(linha,0).toString()); 
+        this.consultarDadoscarros("SELECT * FROM automovel WHERE marca = '" + dado + "'");
     }//GEN-LAST:event_jTable1MouseClicked
 
 //  ALTERAÇÃO DE CORES QUANDO O CURSOR DO MOUSE ENTRAR NO BOTÃO:
@@ -942,6 +951,8 @@ public class principal extends javax.swing.JFrame {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
+        Cadastro.setVisible(true);
+        valor = 1;
     }//GEN-LAST:event_jTable2MouseClicked
     
     /**
@@ -1032,6 +1043,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1171,11 +1183,39 @@ public class principal extends javax.swing.JFrame {
 
              while(dados.next())
              {
+                 
                  model.addRow(new Object[] 
                  { 
                     dados.getString("marcas")
-                      
+                    
                  }); 
+            } 
+            banco.close();
+            con.close();
+        }
+        catch (SQLException e)
+        {
+              System.out.println("Erro: " +e);
+        }
+    }
+    public void consultarDadoscarros(String sql){
+        try
+        {
+             Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/projeto","root","");
+             PreparedStatement banco = (PreparedStatement)con.prepareStatement(sql);
+             banco.execute(); 
+             ResultSet dados = banco.executeQuery(sql);
+
+             DefaultTableModel model =(DefaultTableModel) jTable2.getModel();
+             model.setNumRows(0);
+
+             while(dados.next())
+             {
+                 model.addRow(new Object[] 
+                 { 
+                    dados.getString("modelo")
+                      
+                 });
             } 
             banco.close();
             con.close();
