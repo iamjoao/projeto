@@ -280,7 +280,7 @@ public class funcionario extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Funcionários"
+                "Funcionários", "CPF"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -648,9 +648,31 @@ public class funcionario extends javax.swing.JFrame {
         Funcionarios.setBackground(new Color(92, 140, 20));
         valor1 = 0;
         int linha = jTable1.getSelectedRow(); // retorna a linha selecionada pelo usuario
-//        campoNome.setText(jTable1.getValueAt(linha,0).toString());
+        String cpf = (jTable1.getValueAt(linha,1).toString());
         caixaCargo.setSelectedItem(jTable1.getValueAt(linha,0).toString());
-        campoIdade.setText(idade);
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+            Statement stm = con.createStatement();
+            ResultSet res = stm.executeQuery("SELECT * FROM funcionario");
+            while(res.next()){
+                if (res.getString("cpf") == null ? cpf == null : res.getString("cpf").equals(cpf)){
+                    campoNome.setText(res.getString("nome"));
+                    caixaCargo.setSelectedItem(1);
+                    campoIdade.setText(res.getString("idade"));
+                    campoRG.setText(res.getString("rg"));
+                    campoCPF.setText(res.getString("cpf"));
+                    campoTlefone.setText(res.getString("telefone"));
+                    campoEmail.setText(res.getString("email"));
+                    campoSenha.setText(res.getString("senha"));
+                    campoEndereco.setText(res.getString("rua"));
+                    campoNumero.setText(res.getString("numero"));
+                    campoBairro.setText(res.getString("bairro"));
+                }
+            }
+        } catch (Exception e) {
+            
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void campoRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRGActionPerformed
@@ -806,6 +828,7 @@ public class funcionario extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
+        limparDados();
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseEntered
@@ -818,6 +841,7 @@ public class funcionario extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
+        alterarDados();
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseEntered
@@ -911,8 +935,7 @@ public class funcionario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-public void consultarDados(String sql) 
-    {
+public void consultarDados(String sql){
         try
         {
              Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/projeto","root","");
@@ -927,7 +950,8 @@ public void consultarDados(String sql)
              {
                  model.addRow(new Object[] 
                  { 
-                    dados.getString("nome")
+                    dados.getString("nome"),
+                    dados.getString("cpf") 
                  }); 
             } 
             banco.close();
@@ -938,8 +962,7 @@ public void consultarDados(String sql)
               System.out.println("Erro: " +e);
         }
     }
-public void mostrarDados(String sql) 
-    {
+public void mostrarDados(String sql) {
         try
         {
              Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/paises","root","");
@@ -977,4 +1000,43 @@ public void mostrarDados(String sql)
               System.out.println("Erro: " +e);
         }
  }
+public void limparDados(){
+    campoNome.setText("");
+    caixaCargo.setSelectedItem(0);
+    campoIdade.setText("");
+    campoRG.setText("");
+    campoCPF.setText("");
+    campoTlefone.setText("");
+    campoEmail.setText("");
+    campoSenha.setText("");
+    campoEndereco.setText("");
+    campoNumero.setText("");
+    campoBairro.setText("");
+}
+public void alterarDados(){
+    nome = campoNome.getText();
+    cargo = (String) caixaCargo.getSelectedItem();
+    idade = campoIdade.getText();
+    rg = campoRG.getText();
+    cpf = campoCPF.getText();
+    telefone = campoTlefone.getText();
+    email = campoEmail.getText();
+    senha = campoSenha.getText();
+    endereco = campoEndereco.getText();
+    num = campoNumero.getText();
+    bairro = campoBairro.getText();
+    Connection con;
+    try {
+        con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+        String sql = "UPDATE funcionario SET nome = '"+nome+"' WHERE cpf = '"+cpf+"'";
+        PreparedStatement atualizar = con.prepareStatement(sql);
+        atualizar.executeUpdate();
+        JOptionPane.showMessageDialog(null,"Alteração efetuada com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null,"Erro na alteração!!!!","Erro", JOptionPane.ERROR_MESSAGE);
+    }
+}
+public void excluirDados(){
+    
+}
 }
