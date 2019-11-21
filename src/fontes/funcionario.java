@@ -78,7 +78,6 @@ public class funcionario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(960, 500));
         setMinimumSize(new java.awt.Dimension(960, 500));
-        setPreferredSize(new java.awt.Dimension(960, 500));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -422,6 +421,8 @@ public class funcionario extends javax.swing.JFrame {
         jButton13.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jButton13.setText("ALTERAR");
         jButton13.setBorder(null);
+        jButton13.setMaximumSize(new java.awt.Dimension(89, 29));
+        jButton13.setMinimumSize(new java.awt.Dimension(89, 29));
         jButton13.setPreferredSize(new java.awt.Dimension(89, 37));
         jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -496,9 +497,9 @@ public class funcionario extends javax.swing.JFrame {
                     .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                        .addComponent(jButton13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         CadastroLayout.setVerticalGroup(
             CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -568,9 +569,7 @@ public class funcionario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -624,6 +623,7 @@ public class funcionario extends javax.swing.JFrame {
         jButton12.setVisible(true);
         jButton13.setVisible(false);
         jButton14.setVisible(false);
+        limparDados();
         if(valor1 == 0){
             // ALTERAÇÃO DE COR DO BOTÃO
             Funcionarios.setBackground(new Color(92, 140, 20));
@@ -855,6 +855,7 @@ public class funcionario extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
+        excluirDados();
     }//GEN-LAST:event_jButton14ActionPerformed
                                        
     /**
@@ -1029,7 +1030,7 @@ public void alterarDados(){
     Connection con;
     try {
         con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
-        String sql = "UPDATE funcionario SET nome = '"+nome+"' WHERE cpf = '"+cpf+"'";
+        String sql = "UPDATE funcionario SET nome = '"+nome+"', cargo = '"+cargo+"', idade = '"+idade+"', rg = '"+rg+"', cpf = '"+cpf+"', telefone = '"+telefone+"', email = '"+email+"', senha = '"+senha+"', rua = '"+endereco+"', numero = '"+num+"', bairro = '"+bairro+"' WHERE cpf = '"+cpf+"'";
         PreparedStatement atualizar = con.prepareStatement(sql);
         atualizar.executeUpdate();
         JOptionPane.showMessageDialog(null,"Alteração efetuada com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
