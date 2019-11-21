@@ -71,6 +71,9 @@ public class funcionario extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         campoBairro = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(960, 500));
@@ -396,6 +399,63 @@ public class funcionario extends javax.swing.JFrame {
             }
         });
 
+        jButton12.setBackground(new java.awt.Color(255, 255, 255));
+        jButton12.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        jButton12.setText("LIMPAR");
+        jButton12.setBorder(null);
+        jButton12.setPreferredSize(new java.awt.Dimension(89, 37));
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton12MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton12MouseExited(evt);
+            }
+        });
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jButton13.setBackground(new java.awt.Color(255, 255, 255));
+        jButton13.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        jButton13.setText("ALTERAR");
+        jButton13.setBorder(null);
+        jButton13.setPreferredSize(new java.awt.Dimension(89, 37));
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton13MouseExited(evt);
+            }
+        });
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setBackground(new java.awt.Color(255, 255, 255));
+        jButton14.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        jButton14.setText("EXCLUIR");
+        jButton14.setBorder(null);
+        jButton14.setPreferredSize(new java.awt.Dimension(89, 37));
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton14MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton14MouseExited(evt);
+            }
+        });
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CadastroLayout = new javax.swing.GroupLayout(Cadastro);
         Cadastro.setLayout(CadastroLayout);
         CadastroLayout.setHorizontalGroup(
@@ -403,6 +463,7 @@ public class funcionario extends javax.swing.JFrame {
             .addGroup(CadastroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(CadastroLayout.createSequentialGroup()
                         .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -434,7 +495,11 @@ public class funcionario extends javax.swing.JFrame {
                             .addComponent(campoNumero)
                             .addComponent(campoEndereco)
                             .addComponent(campoBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
         CadastroLayout.setVerticalGroup(
             CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -484,11 +549,17 @@ public class funcionario extends javax.swing.JFrame {
                     .addComponent(campoBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136))
+                .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
-        Background.add(Cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 300, 600));
+        Background.add(Cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 600, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -548,25 +619,34 @@ public class funcionario extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-       if(valor1 == 0){
-           // ALTERAÇÃO DE COR DO BOTÃO
+        jButton11.setVisible(true);
+        jButton12.setVisible(true);
+        jButton13.setVisible(false);
+        jButton14.setVisible(false);
+        if(valor1 == 0){
+            // ALTERAÇÃO DE COR DO BOTÃO
             Funcionarios.setBackground(new Color(92, 140, 20));
-            
-           Cadastro.setVisible(true);
-           valor1 = 1;
-           valor = 1;
-       }else if(valor1 == 1){
-            // ALTERAÇÃO DE COR DO PAINEL
-            Funcionarios.setBackground(new Color(230, 255, 191));
-            
-           Cadastro.setVisible(false);
-           valor1 = 0;
+            Cadastro.setVisible(true);
+            valor1 = 1;
+            valor = 1;
+        }else if(valor1 == 1){
+             // ALTERAÇÃO DE COR DO PAINEL
+             Funcionarios.setBackground(new Color(230, 255, 191));
+
+            Cadastro.setVisible(false);
+            valor = 0;
        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         Cadastro.setVisible(true);
+        jButton11.setVisible(false);
+        jButton12.setVisible(false);
+        jButton13.setVisible(true);
+        jButton14.setVisible(true);
+        Funcionarios.setBackground(new Color(92, 140, 20));
+        valor1 = 0;
         int linha = jTable1.getSelectedRow(); // retorna a linha selecionada pelo usuario
 //        campoNome.setText(jTable1.getValueAt(linha,0).toString());
         caixaCargo.setSelectedItem(jTable1.getValueAt(linha,0).toString());
@@ -715,6 +795,42 @@ public class funcionario extends javax.swing.JFrame {
     private void jButton11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseExited
         jButton11.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton11MouseExited
+
+    private void jButton12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12MouseEntered
+
+    private void jButton12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12MouseExited
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13MouseEntered
+
+    private void jButton13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13MouseExited
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14MouseEntered
+
+    private void jButton14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14MouseExited
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14ActionPerformed
                                        
     /**
      * @param args the command line arguments
@@ -770,6 +886,9 @@ public class funcionario extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
