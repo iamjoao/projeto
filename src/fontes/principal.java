@@ -102,7 +102,6 @@ public class principal extends javax.swing.JFrame {
         campoCor = new javax.swing.JTextField();
         campoData = new javax.swing.JFormattedTextField();
         jButton12 = new javax.swing.JButton();
-        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
 
@@ -638,9 +637,6 @@ public class principal extends javax.swing.JFrame {
                             .addComponent(caixaCombustivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(29, 29, 29))
                     .addGroup(CadastroLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(filler2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(CadastroLayout.createSequentialGroup()
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -649,9 +645,7 @@ public class principal extends javax.swing.JFrame {
         CadastroLayout.setVerticalGroup(
             CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CadastroLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addGap(63, 63, 63)
                 .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(CadastroLayout.createSequentialGroup()
                         .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -774,7 +768,7 @@ public class principal extends javax.swing.JFrame {
                 .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton13)
                     .addComponent(jButton14))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         Background.add(Cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 620, 500));
@@ -1057,11 +1051,13 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseEntered
-        // TODO add your handling code here:
+        // ALTERAÇÃO DE CORES NA ENTRADA:
+        jButton13.setBackground(new Color(137, 202, 40));
     }//GEN-LAST:event_jButton13MouseEntered
 
     private void jButton13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseExited
-        // TODO add your handling code here:
+        // ALTERAÇÃO DE CORES NA SAÍDA:
+        jButton13.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton13MouseExited
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -1074,11 +1070,13 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_caixaMarcaActionPerformed
 
     private void jButton14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseEntered
-        // TODO add your handling code here:
+        // ALTERAÇÃO DE CORES NA ENTRADA:
+        jButton14.setBackground(new Color(137, 202, 40));
     }//GEN-LAST:event_jButton14MouseEntered
 
     private void jButton14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseExited
-        // TODO add your handling code here:
+        // ALTERAÇÃO DE CORES NA SAÍDA:
+        jButton14.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton14MouseExited
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -1148,7 +1146,6 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JTextField campoPreco;
     private javax.swing.JTextField campoTamanho;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.Box.Filler filler2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
