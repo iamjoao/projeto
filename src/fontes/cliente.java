@@ -59,6 +59,9 @@ public class cliente extends javax.swing.JFrame {
         campoCpf = new javax.swing.JFormattedTextField();
         campoRg = new javax.swing.JFormattedTextField();
         campoIdade = new javax.swing.JFormattedTextField();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
         Menu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -94,7 +97,7 @@ public class cliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Clientes"
+                "Clientes", "CPF"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -109,12 +112,10 @@ public class cliente extends javax.swing.JFrame {
         opcoesLayout.setHorizontalGroup(
             opcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, opcoesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(opcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(opcoesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(opcoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
                 .addGap(945, 945, 945))
         );
         opcoesLayout.setVerticalGroup(
@@ -194,6 +195,27 @@ public class cliente extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        jButton12.setText("LIMPAR");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jButton13.setText("ALTERAR");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setText("EXCLUIR");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout cadastroLayout = new javax.swing.GroupLayout(cadastro);
         cadastro.setLayout(cadastroLayout);
         cadastroLayout.setHorizontalGroup(
@@ -238,7 +260,11 @@ public class cliente extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(campoIdade)))
                 .addGap(255, 255, 255)
-                .addComponent(jButton11)
+                .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(354, Short.MAX_VALUE))
         );
         cadastroLayout.setVerticalGroup(
@@ -268,15 +294,18 @@ public class cliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -417,6 +446,11 @@ public class cliente extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        limparDados();
+        jButton11.setVisible(true);
+        jButton12.setVisible(true);
+        jButton13.setVisible(false);
+        jButton14.setVisible(false);
         if (valor == 0) {
             cadastro.setVisible(true);
             valor = 1;
@@ -428,47 +462,7 @@ public class cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        nome = campoNome.getText();
-        idade = campoIdade.getText();
-        rg = campoRg.getText();
-        cpf = campoCpf.getText();
-        tel = campotelefone.getText();
-        email = campoEmail.getText();
-        rua = campoRua.getText();
-        num = campoNumero.getText();
-        bairro = campoBairro.getText();
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
-            Statement stm = con.createStatement();
-            if("".equals(nome)){
-                JOptionPane.showMessageDialog(null,"DIGITE O NOME DO CLIENTE \n","Cliente", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(idade)){
-                JOptionPane.showMessageDialog(null,"DIGITE A IDADE DO CLIENTE \n","Idade", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(rg)){
-                JOptionPane.showMessageDialog(null,"DIGITE O RG DO CLIENTE \n","RG", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(cpf)){
-                JOptionPane.showMessageDialog(null,"DIGITE O CPF DO CLIENTE \n","CPF", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(tel)){
-                JOptionPane.showMessageDialog(null,"DIGITE O TELEFONE DO CLIENTE \n","Telefone", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(email)){
-                JOptionPane.showMessageDialog(null,"DIGITE O EMAIL DO CLIENTE \n","E-mail", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(rua)){
-                JOptionPane.showMessageDialog(null,"DIGITE A RUA DO CLIENTE \n","Rua", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(num)){
-                JOptionPane.showMessageDialog(null,"DIGITE O NUMERO DA CASA DO CLIENTE \n","Numero da casa", JOptionPane.INFORMATION_MESSAGE);
-            }else if("".equals(bairro)){
-                JOptionPane.showMessageDialog(null,"DIGITE O BAIRRO DO CLIENTE \n","Bairro", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                int executeUpdate = stm.executeUpdate("INSERT into cliente values('"+id+"','"+nome+"','"+idade+"','"+rg+"','"+cpf+"','"+tel+"','"+email+"','"+rua+"','"+num+"','"+bairro+"')");
-                JOptionPane.showMessageDialog(null,"CLIENTE CADASTRADO COM SUCESSO \n","", JOptionPane.INFORMATION_MESSAGE);
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        inserirDados();
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void campoCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCpfActionPerformed
@@ -525,13 +519,55 @@ public class cliente extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        
+        cadastro.setVisible(true);
+        jButton11.setVisible(false);
+        jButton12.setVisible(false);
+        jButton13.setVisible(true);
+        jButton14.setVisible(true);
+        valor = 0;
+        int linha = jTable1.getSelectedRow(); // retorna a linha selecionada pelo usuario
+        String cpf = jTable1.getValueAt(linha,1).toString(); 
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+            Statement stm = con.createStatement();
+            ResultSet res = stm.executeQuery("SELECT * FROM cliente");
+            while(res.next()){
+                if (res.getString("cpf") == null ? cpf == null : res.getString("cpf").equals(cpf)) {
+                    campoNome.setText(res.getString("nome"));
+                    campoIdade.setText(res.getString("idade"));
+                    campoRg.setText(res.getString("rg"));
+                    campoCpf.setText(res.getString("cpf"));
+                    campotelefone.setText(res.getString("telefone"));
+                    campoEmail.setText(res.getString("email"));
+                    campoRua.setText(res.getString("rua"));
+                    campoNumero.setText(res.getString("numero"));
+                    campoBairro.setText(res.getString("bairro"));
+                }
+            }
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         this.consultarDados("SELECT * FROM cliente ORDER BY idCliente ASC");
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        limparDados();
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        alterarDados();
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        excluirDados();
+    }//GEN-LAST:event_jButton14ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -583,6 +619,9 @@ public class cliente extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -605,20 +644,8 @@ public class cliente extends javax.swing.JFrame {
     private javax.swing.JLabel model;
     private javax.swing.JPanel opcoes;
     // End of variables declaration//GEN-END:variables
-    public static Point centralizarFrame (int width, int height){
-    return (
-        new Point (
-            ((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2) - (width/2),
-            ((int)Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2) - (height/2)));
-    }
-    public static Dimension redimensionarFrameTotal (){
-    return (
-        new Dimension (
-            (int) Toolkit.getDefaultToolkit ().getScreenSize ().getWidth (),
-            (int) Toolkit.getDefaultToolkit ().getScreenSize ().getHeight ()));
-}
-    public void consultarDados(String sql) 
-    {
+
+    public void consultarDados(String sql){
         try
         {
              Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/projeto","root","");
@@ -633,7 +660,8 @@ public class cliente extends javax.swing.JFrame {
              {
                  model.addRow(new Object[] 
                  { 
-                    dados.getString("nome")
+                    dados.getString("nome"),
+                    dados.getString("cpf")
                  }); 
             } 
             banco.close();
@@ -642,6 +670,102 @@ public class cliente extends javax.swing.JFrame {
         catch (SQLException e)
         {
               System.out.println("Erro: " +e);
+        }
+    }
+    public void inserirDados(){
+        nome = campoNome.getText();
+        idade = campoIdade.getText();
+        rg = campoRg.getText();
+        cpf = campoCpf.getText();
+        tel = campotelefone.getText();
+        email = campoEmail.getText();
+        rua = campoRua.getText();
+        num = campoNumero.getText();
+        bairro = campoBairro.getText();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+            Statement stm = con.createStatement();
+            if("".equals(nome)){
+                JOptionPane.showMessageDialog(null,"DIGITE O NOME DO CLIENTE \n","Cliente", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(idade)){
+                JOptionPane.showMessageDialog(null,"DIGITE A IDADE DO CLIENTE \n","Idade", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(rg)){
+                JOptionPane.showMessageDialog(null,"DIGITE O RG DO CLIENTE \n","RG", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(cpf)){
+                JOptionPane.showMessageDialog(null,"DIGITE O CPF DO CLIENTE \n","CPF", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(tel)){
+                JOptionPane.showMessageDialog(null,"DIGITE O TELEFONE DO CLIENTE \n","Telefone", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(email)){
+                JOptionPane.showMessageDialog(null,"DIGITE O EMAIL DO CLIENTE \n","E-mail", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(rua)){
+                JOptionPane.showMessageDialog(null,"DIGITE A RUA DO CLIENTE \n","Rua", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(num)){
+                JOptionPane.showMessageDialog(null,"DIGITE O NUMERO DA CASA DO CLIENTE \n","Numero da casa", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(bairro)){
+                JOptionPane.showMessageDialog(null,"DIGITE O BAIRRO DO CLIENTE \n","Bairro", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                int executeUpdate = stm.executeUpdate("INSERT into cliente values('"+id+"','"+nome+"','"+idade+"','"+rg+"','"+cpf+"','"+tel+"','"+email+"','"+rua+"','"+num+"','"+bairro+"')");
+                JOptionPane.showMessageDialog(null,"CLIENTE CADASTRADO COM SUCESSO \n","", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void limparDados(){
+        campoNome.setText("");
+        campoIdade.setText("");
+        campoRg.setText("");
+        campoCpf.setText("");
+        campotelefone.setText("");
+        campoEmail.setText("");
+        campoRua.setText("");
+        campoNumero.setText("");
+        campoBairro.setText("");
+    }
+    public void alterarDados(){
+        nome = campoNome.getText();
+        idade = campoIdade.getText();
+        rg = campoRg.getText();
+        cpf = campoCpf.getText();
+        tel = campotelefone.getText();
+        email = campoEmail.getText();
+        rua = campoRua.getText();
+        num = campoNumero.getText();
+        bairro = campoBairro.getText();
+        Connection con;
+        try {  
+            con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+            String sql = ("UPDATE cliente SET nome = '"+nome+"', idade='"+idade+"', rg='"+rg+"', cpf='"+cpf+"', telefone='"+tel+"'"
+                    + ",email ='"+email+"',rua='"+rua+"', numero='"+num+"', bairro='"+bairro+"' WHERE cpf = '"+cpf+"'");
+            PreparedStatement atualizar = con.prepareStatement(sql);
+            atualizar.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Alteração efetuada com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro na alteração!!!!","Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void excluirDados(){
+        nome = campoNome.getText();
+        idade = campoIdade.getText();
+        rg = campoRg.getText();
+        cpf = campoCpf.getText();
+        tel = campotelefone.getText();
+        email = campoEmail.getText();
+        rua = campoRua.getText();
+        num = campoNumero.getText();
+        bairro = campoBairro.getText();
+        Connection con;
+        try {  
+            con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+            String sql = ("DELETE FROM cliente WHERE cpf = '"+cpf+"'");
+            PreparedStatement atualizar = con.prepareStatement(sql);
+            atualizar.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Exclusão efetuada com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro na alteração!!!!","Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

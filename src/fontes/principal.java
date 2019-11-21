@@ -27,6 +27,7 @@ public class principal extends javax.swing.JFrame {
 //        Background.add(p1, BorderLayout.CENTER);
 //        Background.revalidate();
 //        Background.repaint();
+        caixaCombinacao();
         Veiculos.setVisible(false);
         Cadastro.setVisible(false);
         setIconImage(getIconImage());
@@ -98,10 +99,12 @@ public class principal extends javax.swing.JFrame {
         campoAno = new javax.swing.JTextField();
         caixaPortas = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        caixaCor = new javax.swing.JTextField();
+        campoCor = new javax.swing.JTextField();
         campoData = new javax.swing.JFormattedTextField();
         jButton12 = new javax.swing.JButton();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(57, 64, 48));
@@ -319,7 +322,7 @@ public class principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Carros"
+                "Carros", "Placa"
             }
         ));
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -355,8 +358,8 @@ public class principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         Background.add(Veiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, -1, 500));
@@ -389,7 +392,11 @@ public class principal extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel12.setText("Cambio:");
 
-        caixaMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Volkswagen" }));
+        caixaMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caixaMarcaActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel13.setText("Ocupantes:");
@@ -506,6 +513,40 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
+        jButton13.setBackground(new java.awt.Color(255, 255, 255));
+        jButton13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton13.setText("ALTERAR");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton13MouseExited(evt);
+            }
+        });
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setBackground(new java.awt.Color(255, 255, 255));
+        jButton14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton14.setText("EXCLUIR");
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton14MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton14MouseExited(evt);
+            }
+        });
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CadastroLayout = new javax.swing.GroupLayout(Cadastro);
         Cadastro.setLayout(CadastroLayout);
         CadastroLayout.setHorizontalGroup(
@@ -517,7 +558,7 @@ public class principal extends javax.swing.JFrame {
                         .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9))
+                        .addGap(9, 30, Short.MAX_VALUE))
                     .addGroup(CadastroLayout.createSequentialGroup()
                         .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(CadastroLayout.createSequentialGroup()
@@ -593,10 +634,17 @@ public class principal extends javax.swing.JFrame {
                             .addComponent(campoPeso)
                             .addComponent(caixaTrava, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(campoData)
-                            .addComponent(caixaCor)
+                            .addComponent(campoCor)
                             .addComponent(caixaCombustivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(29, 29, 29))
-                    .addComponent(filler2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(CadastroLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(filler2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(CadastroLayout.createSequentialGroup()
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         CadastroLayout.setVerticalGroup(
             CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -679,7 +727,7 @@ public class principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(CadastroLayout.createSequentialGroup()
-                                .addComponent(caixaCor, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(campoCor, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)
                                 .addComponent(caixaCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)
@@ -722,7 +770,11 @@ public class principal extends javax.swing.JFrame {
                 .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11)
                     .addComponent(jButton12))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton13)
+                    .addComponent(jButton14))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         Background.add(Cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 620, 500));
@@ -753,7 +805,7 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_campoDataActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        insirirDados();
+        inserirDados();
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void campoPesoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoPesoKeyPressed
@@ -781,7 +833,12 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_campoPesoFocusGained
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:      
+        // TODO add your handling code here:
+        limparDados();
+        jButton11.setVisible(true);
+        jButton12.setVisible(true);
+        jButton13.setVisible(false);
+        jButton14.setVisible(false);
         if (valor == 0) {
             // ALTERAÇÃO DE COR DO PAINEL
             Veiculos.setBackground(new Color(92, 140, 20));
@@ -852,9 +909,7 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        Cadastro.setVisible(false);
-        valor = 0;
+        // TODO add your handling code here:;
         int linha = jTable1.getSelectedRow(); // retorna a linha selecionada pelo usuario
         dado = (jTable1.getValueAt(linha,0).toString()); 
         this.consultarDadoscarros("SELECT * FROM automovel WHERE marca = '" + dado + "'");
@@ -951,9 +1006,85 @@ public class principal extends javax.swing.JFrame {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
+        Veiculos.setBackground(new Color(92, 140, 20));
         Cadastro.setVisible(true);
+        jButton11.setVisible(false);
+        jButton12.setVisible(false);
+        jButton13.setVisible(true);
+        jButton14.setVisible(true);
         valor = 1;
+        valor = 0;
+        int linha = jTable2.getSelectedRow(); // retorna a linha selecionada pelo usuario
+        dado = (jTable2.getValueAt(linha,1).toString()); 
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+            Statement stm = con.createStatement();
+            ResultSet res = stm.executeQuery("SELECT * FROM automovel");
+            while(res.next()){
+//                int masc = res.getInt("marca");
+                if (res.getString("placa") == null ? dado == null : res.getString("placa").equals(dado)) {
+                    campoModelo.setText(res.getString("modelo"));
+                    caixaMarca.setSelectedItem("marca");
+                    campoPlaca.setText(res.getString("placa"));
+                    campoAno.setText(res.getString("ano"));
+                    campoPreco.setText(res.getString("preco"));
+                    caixaPortas.setSelectedItem("portas");
+                    campoPortamalas.setText(res.getString("litroPortaMalas"));
+                    caixaCambio.setSelectedItem("cambio");
+                    campoOcupantes.setText(res.getString("capacidadePessoas"));
+                    caixaBanco.setSelectedItem("banco");
+                    campoAutonomia.setText(res.getString("autonomia"));
+                    campoKilometragem.setText(res.getString("kilometragem"));
+                    caixaAirbag.setSelectedItem("airbag");
+                    caixaAr.setSelectedItem("arCondicionado");
+                    caixaDirecao.setSelectedItem("direcaoHidraulica");
+                    caixaTrava.setSelectedItem("travaEletrica");
+                    campoData.setText(res.getString("dataInspecao"));
+                    campoCor.setText(res.getString("cor"));
+                    caixaCombustivel.setSelectedItem("combustivel");
+                    campoPeso.setText(res.getString("peso"));
+                    campoTamanho.setText(res.getString("tamanho"));
+                    
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jButton13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13MouseEntered
+
+    private void jButton13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13MouseExited
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        alterarDados();
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void caixaMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaMarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_caixaMarcaActionPerformed
+
+    private void jButton14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14MouseEntered
+
+    private void jButton14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14MouseExited
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        excluirDados();
+    }//GEN-LAST:event_jButton14ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1000,13 +1131,13 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> caixaBanco;
     private javax.swing.JComboBox<String> caixaCambio;
     private javax.swing.JComboBox<String> caixaCombustivel;
-    private javax.swing.JTextField caixaCor;
     private javax.swing.JComboBox<String> caixaDirecao;
     private javax.swing.JComboBox<Object> caixaMarca;
     private javax.swing.JComboBox<String> caixaPortas;
     private javax.swing.JComboBox<String> caixaTrava;
     private javax.swing.JTextField campoAno;
     private javax.swing.JTextField campoAutonomia;
+    private javax.swing.JTextField campoCor;
     private javax.swing.JFormattedTextField campoData;
     private javax.swing.JTextField campoKilometragem;
     private javax.swing.JTextField campoModelo;
@@ -1021,6 +1152,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1061,7 +1194,25 @@ public class principal extends javax.swing.JFrame {
     private void setIconImage(Image iconImage) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public void insirirDados(){
+    public void caixaCombinacao(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+            Statement stm = con.createStatement();
+           
+            ResultSet res = stm.executeQuery("SELECT * FROM marcas_automovel");
+            caixaMarca.removeAllItems();
+            while(res.next()){
+                caixaMarca.addItem(res.getString("marcas"));
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void inserirDados(){
         modelo = campoModelo.getText();
         marca = (String) caixaMarca.getSelectedItem();
         placa = campoPlaca.getText();
@@ -1082,7 +1233,7 @@ public class principal extends javax.swing.JFrame {
         direcao = (String) caixaDirecao.getSelectedItem();
         trava = (String) caixaTrava.getSelectedItem();
         data = campoData.getText();
-        cor = caixaCor.getText();
+        cor = campoCor.getText();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
@@ -1139,6 +1290,89 @@ public class principal extends javax.swing.JFrame {
             Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void alterarDados(){
+        modelo = campoModelo.getText();
+        marca = (String) caixaMarca.getSelectedItem();
+        placa = campoPlaca.getText();
+        ano = campoAno.getText();
+        preco = campoPreco.getText();
+        portas = (String)caixaPortas.getSelectedItem();
+        malas = campoPortamalas.getText();
+        cambio = (String) caixaCambio.getSelectedItem();
+        pessoas = campoOcupantes.getText();
+        banco = (String) caixaBanco.getSelectedItem();
+        autonomia = campoAutonomia.getText();
+        combustivel = (String) caixaCombustivel.getSelectedItem();
+        peso = campoPeso.getText();
+        tam = campoTamanho.getText();
+        km = campoKilometragem.getText();
+        air = (String) caixaAirbag.getSelectedItem();
+        ar = (String) caixaAr.getSelectedItem();
+        direcao = (String) caixaDirecao.getSelectedItem();
+        trava = (String) caixaTrava.getSelectedItem();
+        data = campoData.getText();
+        cor = campoCor.getText();
+        Connection con;
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+            if("".equals(modelo)){
+                JOptionPane.showMessageDialog(null,"DIGITE O MODELO DO CARRO \n","Modelo", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(marca)){
+                JOptionPane.showMessageDialog(null,"SELECIONE A MARCA DO CARRO \n","Marca", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(placa)){
+                JOptionPane.showMessageDialog(null,"DIGITE A PLACA DO CARRO \n","Placa", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(ano)){
+                JOptionPane.showMessageDialog(null,"DIGITE O ANO DO CARRO \n","Ano", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(preco)){
+                JOptionPane.showMessageDialog(null,"DIGITE PREÇO DO CARRO \n","Preço", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(portas)){
+                JOptionPane.showMessageDialog(null,"SELECIONE A QUANTIDADE DE PORTAS DO CARRO \n","Portas", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(malas)){
+                JOptionPane.showMessageDialog(null,"DIGITE A QUANTIDADE DE LITROS DO PORTA MALAS DO CARRO \n","Porta Malas", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(cambio)){
+                JOptionPane.showMessageDialog(null,"SELECIONE A TRANSMISSÃO DO CÂMBIO \n","Câmbio", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(pessoas)){
+                JOptionPane.showMessageDialog(null,"DIGITE A CAPACIDADE DE PESSOAS DO CARRO \n","Capacidade", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(banco)){
+                JOptionPane.showMessageDialog(null,"SELECIONE O MATERIAL DO BANCO DO CARRO \n","Material do Banco", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(autonomia)){
+                JOptionPane.showMessageDialog(null,"DIGITE A AUTONOMIA DO CARRO \n","Autonomia", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(combustivel)){
+                JOptionPane.showMessageDialog(null,"SELECIONE O TIPO DE COMBUSTÍVEL DO CARRO \n","Combustível", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(peso)){
+                JOptionPane.showMessageDialog(null,"DIGITE O PESO DO CARRO \n","Peso", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(tam)){
+                JOptionPane.showMessageDialog(null,"DIGITE O TAMANHO DO CARRO \n","Tamanho", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(km)){
+                JOptionPane.showMessageDialog(null,"DIGITE A KILOMETRAGEM DO CARRO \n","Kilometragem", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(air)){
+                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO PARA O AIRBAG\n","AirBag", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(ar)){
+                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO PARA O ARCONDICIONADO\n","ArCondicionado", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(direcao)){
+                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO A DIRAÇÃO HIDRÁULICA\n","Direção", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Selecione uma opção".equals(trava)){
+                JOptionPane.showMessageDialog(null,"SELECIONE UMA OPÇÃO PARA TRAVA ELÉTRICA\n","Trava Elétrica", JOptionPane.INFORMATION_MESSAGE);
+            }else if("".equals(data)){
+                JOptionPane.showMessageDialog(null,"DIGITE A DATA DA ÚLTIMA INSPEÇÃO DO CARRO \n","Kilometragem", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                String sql = ("UPDATE automovel SET modelo = '"+modelo+"', marca='"+marca+"',placa='"+placa+"',ano='"+ano+"',preco='"+preco+"',"
+                        + "portas='"+portas+"',litroPortaMalas='"+malas+"',cambio='"+cambio+"',capacidadePessoas='"+pessoas+"',banco='"+banco+"',"
+                        + "autonomia='"+autonomia+"',kilometragem='"+km+"',airbag='"+air+"',arCondicionado='"+ar+"',direcaoHidraulica='"+direcao+"',"
+                        + "travaEletrica='"+trava+"',dataInspecao='"+data+"',cor='"+cor+"',combustivel='"+combustivel+"',"
+                        + "peso='"+peso+"',tamanho='"+tam+"' WHERE placa = '" + placa + "'");
+                PreparedStatement atualizar = con.prepareStatement(sql);
+                atualizar.executeUpdate();
+                JOptionPane.showMessageDialog(null,"Alteração efetuada com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            }
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+              
+    }
     public void limparDados(){
         campoModelo.setText("");
         caixaMarca.setSelectedItem("Selecione uma opção");
@@ -1163,14 +1397,47 @@ public class principal extends javax.swing.JFrame {
         caixaDirecao.setSelectedItem("Selecione uma opção");
         caixaTrava.setSelectedItem("Selecione uma opção");
         campoData.setText("");
-        caixaCor.setText("");
-    }  
+        campoCor.setText("");
+    } 
+    public void excluirDados(){
+        modelo = campoModelo.getText();
+        marca = (String) caixaMarca.getSelectedItem();
+        placa = campoPlaca.getText();
+        ano = campoAno.getText();
+        preco = campoPreco.getText();
+        portas = (String)caixaPortas.getSelectedItem();
+        malas = campoPortamalas.getText();
+        cambio = (String) caixaCambio.getSelectedItem();
+        pessoas = campoOcupantes.getText();
+        banco = (String) caixaBanco.getSelectedItem();
+        autonomia = campoAutonomia.getText();
+        combustivel = (String) caixaCombustivel.getSelectedItem();
+        peso = campoPeso.getText();
+        tam = campoTamanho.getText();
+        km = campoKilometragem.getText();
+        air = (String) caixaAirbag.getSelectedItem();
+        ar = (String) caixaAr.getSelectedItem();
+        direcao = (String) caixaDirecao.getSelectedItem();
+        trava = (String) caixaTrava.getSelectedItem();
+        data = campoData.getText();
+        cor = campoCor.getText();
+        Connection con;
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+                String sql = ("DELETE FROM automovel WHERE placa = '" + placa + "'");
+                PreparedStatement atualizar = con.prepareStatement(sql);
+                atualizar.executeUpdate();
+                JOptionPane.showMessageDialog(null,"Exclusão efetuada com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public final java.awt.Image getIconImage(){
         java.awt.Image ICONE = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagens/logo60px.png"));
         return ICONE;
     }
-    public void consultarDados(String sql) 
-    {
+    public void consultarDados(String sql) {
         try
         {
              Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/projeto","root","");
@@ -1213,7 +1480,8 @@ public class principal extends javax.swing.JFrame {
              {
                  model.addRow(new Object[] 
                  { 
-                    dados.getString("modelo")
+                    dados.getString("modelo"),
+                    dados.getString("placa")
                       
                  });
             } 
@@ -1225,4 +1493,5 @@ public class principal extends javax.swing.JFrame {
               System.out.println("Erro: " +e);
         }
     }
+
 }
