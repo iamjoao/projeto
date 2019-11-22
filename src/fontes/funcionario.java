@@ -1039,6 +1039,26 @@ public void alterarDados(){
     }
 }
 public void excluirDados(){
-    
+    nome = campoNome.getText();
+    cargo = (String) caixaCargo.getSelectedItem();
+    idade = campoIdade.getText();
+    rg = campoRG.getText();
+    cpf = campoCPF.getText();
+    telefone = campoTlefone.getText();
+    email = campoEmail.getText();
+    senha = campoSenha.getText();
+    endereco = campoEndereco.getText();
+    num = campoNumero.getText();
+    bairro = campoBairro.getText();
+        Connection con;
+        try {  
+            con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+            String sql = ("DELETE FROM funcionario WHERE cpf = '"+cpf+"'");
+            PreparedStatement atualizar = con.prepareStatement(sql);
+            atualizar.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Exclusão efetuada com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro na alteração!!!!","Erro", JOptionPane.ERROR_MESSAGE);
+        }
 }
 }
