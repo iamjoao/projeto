@@ -897,18 +897,16 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+      
         if(valor1 == 0){
             // ALTERAÇÃO DE COR DO BOTÃO:
-            Menu.setBackground(new Color(92, 140, 20));
-        
+            Menu.setBackground(new Color(92, 140, 20));     
             Veiculos.setVisible(true);
             valor1 = 1;
         }else if(valor1 == 1){
             // ALTERAÇÃO DE COR DO BOTÃO:
             Menu.setBackground(new Color(230, 255, 191));
             Veiculos.setBackground(new Color(230, 255, 191));
-            
             Veiculos.setVisible(false);
             Cadastro.setVisible(false);
             valor1 = 0;
