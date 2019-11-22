@@ -12,7 +12,6 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class aluguel extends javax.swing.JFrame {
-
     private principal prin;
     private cliente clin;
     private funcionario fun;
@@ -21,8 +20,8 @@ public class aluguel extends javax.swing.JFrame {
     private int valor = 0, valor1 = 0;
     public aluguel() {
         initComponents();
-        Veiculos.setVisible(false);
         Alugar.setVisible(false);
+        model23.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -93,6 +92,8 @@ public class aluguel extends javax.swing.JFrame {
         model20 = new javax.swing.JLabel();
         model21 = new javax.swing.JLabel();
         model22 = new javax.swing.JLabel();
+        model23 = new javax.swing.JLabel();
+        model24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(960, 500));
@@ -361,70 +362,99 @@ public class aluguel extends javax.swing.JFrame {
         });
 
         model1.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model1.setForeground(new java.awt.Color(255, 0, 0));
         model1.setText("Modelo:");
 
         model2.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model2.setForeground(new java.awt.Color(255, 0, 0));
         model2.setText("Modelo:");
 
         model3.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model3.setForeground(new java.awt.Color(255, 0, 0));
         model3.setText("Modelo:");
 
         model4.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model4.setForeground(new java.awt.Color(255, 0, 0));
         model4.setText("Modelo:");
 
         model5.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model5.setForeground(new java.awt.Color(255, 0, 0));
         model5.setText("Modelo:");
 
         model6.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model6.setForeground(new java.awt.Color(255, 0, 0));
         model6.setText("Modelo:");
 
         model7.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model7.setForeground(new java.awt.Color(255, 0, 0));
         model7.setText("Modelo:");
 
         model8.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model8.setForeground(new java.awt.Color(255, 0, 0));
         model8.setText("Modelo:");
 
         model9.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model9.setForeground(new java.awt.Color(255, 0, 0));
         model9.setText("Modelo:");
 
         model10.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model10.setForeground(new java.awt.Color(255, 0, 0));
         model10.setText("Modelo:");
 
         model11.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model11.setForeground(new java.awt.Color(255, 0, 0));
         model11.setText("Modelo:");
 
         model12.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model12.setForeground(new java.awt.Color(255, 0, 0));
         model12.setText("Modelo:");
 
         model13.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model13.setForeground(new java.awt.Color(255, 0, 0));
         model13.setText("Modelo:");
 
         model14.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model14.setForeground(new java.awt.Color(255, 0, 0));
         model14.setText("Modelo:");
 
         model15.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model15.setForeground(new java.awt.Color(255, 0, 0));
         model15.setText("Modelo:");
 
         model16.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model16.setForeground(new java.awt.Color(255, 0, 0));
         model16.setText("Modelo:");
 
         model17.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model17.setForeground(new java.awt.Color(255, 0, 0));
         model17.setText("Modelo:");
 
         model18.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model18.setForeground(new java.awt.Color(255, 0, 0));
         model18.setText("Modelo:");
 
         model19.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model19.setForeground(new java.awt.Color(255, 0, 0));
         model19.setText("Modelo:");
 
         model20.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model20.setForeground(new java.awt.Color(255, 0, 0));
         model20.setText("Modelo:");
 
         model21.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model21.setForeground(new java.awt.Color(255, 0, 0));
         model21.setText("Modelo:");
 
         model22.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model22.setForeground(new java.awt.Color(255, 0, 0));
         model22.setText("Modelo:");
+
+        model23.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model23.setForeground(new java.awt.Color(255, 0, 0));
+        model23.setText("Modelo:");
+
+        model24.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model24.setText("CLIENTE:");
 
         javax.swing.GroupLayout AlugarLayout = new javax.swing.GroupLayout(Alugar);
         Alugar.setLayout(AlugarLayout);
@@ -507,10 +537,17 @@ public class aluguel extends javax.swing.JFrame {
                     .addComponent(model21, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(model22, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(74, 74, 74))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AlugarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton8)
-                .addGap(270, 270, 270))
+            .addGroup(AlugarLayout.createSequentialGroup()
+                .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AlugarLayout.createSequentialGroup()
+                        .addGap(286, 286, 286)
+                        .addComponent(jButton8))
+                    .addGroup(AlugarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(model24, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(model23, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AlugarLayout.setVerticalGroup(
             AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -615,9 +652,13 @@ public class aluguel extends javax.swing.JFrame {
                                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(model11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(1, 1, 1)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(model24, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(model23, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addComponent(jButton8)
-                .addGap(38, 38, 38))
+                .addContainerGap())
         );
 
         Background.add(Alugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 610, 500));
@@ -683,6 +724,7 @@ public class aluguel extends javax.swing.JFrame {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
+        limparDados();
         Alugar.setVisible(true);
         Veiculos.setBackground(new Color(92, 140, 20));
         valor = 1;
@@ -699,24 +741,24 @@ public class aluguel extends javax.swing.JFrame {
                 //                int masc = res.getInt("marca");
                 if (res.getString("placa") == null ? dado == null : res.getString("placa").equals(dado)) {
                     model1.setText(res.getString("modelo"));
-                    model2.setText("marca");
+                    model2.setText(res.getString("marca"));
                     model3.setText(res.getString("placa"));
                     model4.setText(res.getString("ano"));
                     model5.setText(res.getString("preco"));
-                    model6.setText("portas");
+                    model6.setText(res.getString("portas"));
                     model7.setText(res.getString("litroPortaMalas"));
-                    model8.setText("cambio");
+                    model8.setText(res.getString("cambio"));
                     model9.setText(res.getString("capacidadePessoas"));
-                    model10.setText("banco");
+                    model10.setText(res.getString("banco"));
                     model11.setText(res.getString("autonomia"));
                     model12.setText(res.getString("kilometragem"));
-                    model13.setText("airbag");
-                    model14.setText("arCondicionado");
-                    model15.setText("direcaoHidraulica");
-                    model16.setText("travaEletrica");
+                    model13.setText(res.getString("airbag"));
+                    model14.setText(res.getString("arCondicionado"));
+                    model15.setText(res.getString("direcaoHidraulica"));
+                    model16.setText(res.getString("travaEletrica"));
                     model17.setText(res.getString("dataInspecao"));
                     model18.setText(res.getString("cor"));
-                    model19.setText("combustivel");
+                    model19.setText(res.getString("combustivel"));
                     model20.setText(res.getString("peso"));
                     model21.setText(res.getString("tamanho"));
 
@@ -737,6 +779,7 @@ public class aluguel extends javax.swing.JFrame {
             valor = 1;
         }else if(valor == 1){
             Veiculos.setVisible(false);
+            Alugar.setVisible(false);
             valor = 0;
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -746,8 +789,10 @@ public class aluguel extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-        int linha = jTable1.getSelectedRow();
-        dados1 = jTable3.getValueAt(linha,1).toString();
+        model23.setText("");
+        model23.setVisible(true);
+        int linha = jTable3.getSelectedRow();
+        model23.setText(jTable3.getValueAt(linha,0).toString());
         
     }//GEN-LAST:event_jTable3MouseClicked
 
@@ -848,6 +893,8 @@ public class aluguel extends javax.swing.JFrame {
     private javax.swing.JLabel model20;
     private javax.swing.JLabel model21;
     private javax.swing.JLabel model22;
+    private javax.swing.JLabel model23;
+    private javax.swing.JLabel model24;
     private javax.swing.JLabel model3;
     private javax.swing.JLabel model4;
     private javax.swing.JLabel model5;
@@ -856,7 +903,7 @@ public class aluguel extends javax.swing.JFrame {
     private javax.swing.JLabel model8;
     private javax.swing.JLabel model9;
     // End of variables declaration//GEN-END:variables
-        public void consultarDados(String sql) {
+    public void consultarDados(String sql) {
         try
         {
              Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/projeto","root","");
@@ -938,5 +985,28 @@ public class aluguel extends javax.swing.JFrame {
         {
               System.out.println("Erro: " +e);
         }
+    }
+    public void limparDados(){
+        model1.setText("");
+        model2.setText("");
+        model3.setText("");
+        model4.setText("");
+        model5.setText("");
+        model6.setText("");
+        model7.setText("");
+        model8.setText("");
+        model9.setText("");
+        model10.setText("");
+        model11.setText("");
+        model12.setText("");
+        model13.setText("");
+        model14.setText("");
+        model15.setText("");
+        model16.setText("");
+        model17.setText("");
+        model18.setText("");
+        model19.setText("");
+        model20.setText("");
+        model21.setText("");
     }
 }
