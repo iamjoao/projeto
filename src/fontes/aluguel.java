@@ -19,12 +19,13 @@ public class aluguel extends javax.swing.JFrame {
     private entradasaida es;
     private danificado dani;
     private login login;
-    private String dado, dados1, datasaida, dataentrada, horsaida, horentrada, automovel, cliente, placa, danificado;
+    private String dado, dados1, datasaida, dataentrada, horsaida, horentrada, automovel, cliente, placa, danificado, cpf, alugar;
     private int valor = 0, valor1 = 0, id;
     public aluguel() {
         initComponents();
         Alugar.setVisible(false);
         model23.setVisible(false);
+        model27.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -105,6 +106,8 @@ public class aluguel extends javax.swing.JFrame {
         Hsaida = new javax.swing.JFormattedTextField();
         jLabel27 = new javax.swing.JLabel();
         Hentrada = new javax.swing.JFormattedTextField();
+        model27 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(960, 500));
@@ -122,7 +125,7 @@ public class aluguel extends javax.swing.JFrame {
         Background.setPreferredSize(new java.awt.Dimension(960, 500));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Menu.setBackground(new java.awt.Color(230, 255, 191));
+        Menu.setBackground(new java.awt.Color(92, 140, 20));
         Menu.setPreferredSize(new java.awt.Dimension(180, 500));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -292,7 +295,7 @@ public class aluguel extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -397,9 +400,14 @@ public class aluguel extends javax.swing.JFrame {
         jLabel8.setText("Cor:");
 
         jLabel23.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        jLabel23.setText("Danificado");
+        jLabel23.setText("Danificado:");
 
+        jButton8.setBackground(new java.awt.Color(255, 255, 255));
+        jButton8.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jButton8.setText("ALUGAR");
+        jButton8.setMaximumSize(new java.awt.Dimension(89, 29));
+        jButton8.setMinimumSize(new java.awt.Dimension(89, 29));
+        jButton8.setPreferredSize(new java.awt.Dimension(99, 37));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -407,94 +415,94 @@ public class aluguel extends javax.swing.JFrame {
         });
 
         model1.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model1.setForeground(new java.awt.Color(255, 0, 0));
+        model1.setForeground(new java.awt.Color(102, 102, 102));
 
         model2.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model2.setForeground(new java.awt.Color(255, 0, 0));
+        model2.setForeground(new java.awt.Color(102, 102, 102));
         model2.setText("Modelo:");
 
         model3.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model3.setForeground(new java.awt.Color(255, 0, 0));
+        model3.setForeground(new java.awt.Color(102, 102, 102));
         model3.setText("Modelo:");
 
         model4.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model4.setForeground(new java.awt.Color(255, 0, 0));
+        model4.setForeground(new java.awt.Color(102, 102, 102));
         model4.setText("Modelo:");
 
         model5.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model5.setForeground(new java.awt.Color(255, 0, 0));
+        model5.setForeground(new java.awt.Color(102, 102, 102));
         model5.setText("Modelo:");
 
         model6.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model6.setForeground(new java.awt.Color(255, 0, 0));
+        model6.setForeground(new java.awt.Color(102, 102, 102));
         model6.setText("Modelo:");
 
         model7.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model7.setForeground(new java.awt.Color(255, 0, 0));
+        model7.setForeground(new java.awt.Color(102, 102, 102));
         model7.setText("Modelo:");
 
         model8.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model8.setForeground(new java.awt.Color(255, 0, 0));
+        model8.setForeground(new java.awt.Color(102, 102, 102));
         model8.setText("Modelo:");
 
         model9.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model9.setForeground(new java.awt.Color(255, 0, 0));
+        model9.setForeground(new java.awt.Color(102, 102, 102));
         model9.setText("Modelo:");
 
         model10.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model10.setForeground(new java.awt.Color(255, 0, 0));
+        model10.setForeground(new java.awt.Color(102, 102, 102));
         model10.setText("Modelo:");
 
         model11.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model11.setForeground(new java.awt.Color(255, 0, 0));
+        model11.setForeground(new java.awt.Color(102, 102, 102));
         model11.setText("Modelo:");
 
         model12.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model12.setForeground(new java.awt.Color(255, 0, 0));
+        model12.setForeground(new java.awt.Color(102, 102, 102));
         model12.setText("Modelo:");
 
         model13.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model13.setForeground(new java.awt.Color(255, 0, 0));
+        model13.setForeground(new java.awt.Color(102, 102, 102));
         model13.setText("Modelo:");
 
         model14.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model14.setForeground(new java.awt.Color(255, 0, 0));
+        model14.setForeground(new java.awt.Color(102, 102, 102));
         model14.setText("Modelo:");
 
         model15.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model15.setForeground(new java.awt.Color(255, 0, 0));
+        model15.setForeground(new java.awt.Color(102, 102, 102));
         model15.setText("Modelo:");
 
         model16.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model16.setForeground(new java.awt.Color(255, 0, 0));
+        model16.setForeground(new java.awt.Color(102, 102, 102));
         model16.setText("Modelo:");
 
         model17.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model17.setForeground(new java.awt.Color(255, 0, 0));
+        model17.setForeground(new java.awt.Color(102, 102, 102));
         model17.setText("Modelo:");
 
         model18.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model18.setForeground(new java.awt.Color(255, 0, 0));
+        model18.setForeground(new java.awt.Color(102, 102, 102));
         model18.setText("Modelo:");
 
         model19.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model19.setForeground(new java.awt.Color(255, 0, 0));
+        model19.setForeground(new java.awt.Color(102, 102, 102));
         model19.setText("Modelo:");
 
         model20.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model20.setForeground(new java.awt.Color(255, 0, 0));
+        model20.setForeground(new java.awt.Color(102, 102, 102));
         model20.setText("Modelo:");
 
         model21.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model21.setForeground(new java.awt.Color(255, 0, 0));
+        model21.setForeground(new java.awt.Color(102, 102, 102));
         model21.setText("Modelo:");
 
         model22.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model22.setForeground(new java.awt.Color(255, 0, 0));
+        model22.setForeground(new java.awt.Color(102, 102, 102));
         model22.setText("Modelo:");
 
         model23.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        model23.setForeground(new java.awt.Color(255, 0, 0));
+        model23.setForeground(new java.awt.Color(102, 102, 102));
 
         model24.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         model24.setText("CLIENTE:");
@@ -555,6 +563,9 @@ public class aluguel extends javax.swing.JFrame {
             }
         });
 
+        model27.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        model27.setForeground(new java.awt.Color(102, 102, 102));
+
         javax.swing.GroupLayout AlugarLayout = new javax.swing.GroupLayout(Alugar);
         Alugar.setLayout(AlugarLayout);
         AlugarLayout.setHorizontalGroup(
@@ -565,13 +576,41 @@ public class aluguel extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AlugarLayout.createSequentialGroup()
                         .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AlugarLayout.createSequentialGroup()
-                                .addComponent(marcas, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(model2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(AlugarLayout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(model3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(AlugarLayout.createSequentialGroup()
+                                        .addComponent(marcas, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(model2, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+                                    .addGroup(AlugarLayout.createSequentialGroup()
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(model3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(model16, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(model12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(model13, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(model14, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(model15, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(model17, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(model18, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(model19, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(model20, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(model21, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(model22, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(AlugarLayout.createSequentialGroup()
                                 .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(AlugarLayout.createSequentialGroup()
@@ -610,63 +649,47 @@ public class aluguel extends javax.swing.JFrame {
                                         .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(model1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton8)
-                            .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(AlugarLayout.createSequentialGroup()
-                                    .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(model16, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(model12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(model13, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(model14, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(model15, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(model17, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(model18, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(model19, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(model20, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(model21, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(model22, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(AlugarLayout.createSequentialGroup()
-                                    .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel27)
-                                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Hentrada, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(Hsaida, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(7, 7, 7))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(AlugarLayout.createSequentialGroup()
+                                .addComponent(model24, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(model23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(33, 33, 33))
                     .addGroup(AlugarLayout.createSequentialGroup()
                         .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AlugarLayout.createSequentialGroup()
-                                .addComponent(model24, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(model23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(AlugarLayout.createSequentialGroup()
-                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Dsaida, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(AlugarLayout.createSequentialGroup()
-                                    .addComponent(jLabel25)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(Dentrada, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(161, 161, 161))))
+                                .addGap(10, 10, 10)
+                                .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AlugarLayout.createSequentialGroup()
+                                            .addGap(273, 273, 273)
+                                            .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel27)
+                                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(Hentrada, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(Hsaida, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(AlugarLayout.createSequentialGroup()
+                                            .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(AlugarLayout.createSequentialGroup()
+                                                    .addGap(1, 1, 1)
+                                                    .addComponent(jLabel25)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(Dsaida)
+                                                        .addComponent(Dentrada, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(AlugarLayout.createSequentialGroup()
+                                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(14, 14, 14)
+                                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGap(290, 290, 290)))
+                                    .addGroup(AlugarLayout.createSequentialGroup()
+                                        .addGap(139, 139, 139)
+                                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(model27, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         AlugarLayout.setVerticalGroup(
             AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -775,21 +798,30 @@ public class aluguel extends javax.swing.JFrame {
                 .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(model24, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(model23, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Dsaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Hsaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Dentrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AlugarLayout.createSequentialGroup()
+                        .addComponent(model27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Hsaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(AlugarLayout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Dsaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Hentrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(jButton8)
-                .addContainerGap())
+                    .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Dentrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
         Background.add(Alugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 610, 500));
@@ -850,7 +882,7 @@ public class aluguel extends javax.swing.JFrame {
         // TODO add your handling code here:;
         int linha = jTable1.getSelectedRow(); // retorna a linha selecionada pelo usuario
         dado = jTable1.getValueAt(linha,0).toString();
-        this.consultarDadoscarros("SELECT * FROM automovel WHERE marca = '" + dado + "'");
+        this.consultarDadoscarros("SELECT * FROM automovel WHERE marca = '" + dado + "' AND aluguel = 'Não'");
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
@@ -859,7 +891,7 @@ public class aluguel extends javax.swing.JFrame {
         Veiculos.setBackground(new Color(92, 140, 20));
         valor = 1;
         valor = 0;
-        this.consultarDadosCliente("SELECT * FROM cliente ");
+        this.consultarDadosCliente("SELECT * FROM cliente");
         int linha = jTable2.getSelectedRow(); // retorna a linha selecionada pelo usuario
         dado = (jTable2.getValueAt(linha,1).toString());
         try {
@@ -892,6 +924,7 @@ public class aluguel extends javax.swing.JFrame {
                     model20.setText(res.getString("peso"));
                     model21.setText(res.getString("tamanho"));
                     model22.setText(res.getString("danificado"));
+                    
                 }
             }
         } catch (ClassNotFoundException ex) {
@@ -923,6 +956,7 @@ public class aluguel extends javax.swing.JFrame {
         model23.setVisible(true);
         int linha = jTable3.getSelectedRow();
         model23.setText(jTable3.getValueAt(linha,0).toString());
+        model27.setText(jTable3.getValueAt(linha,1). toString());
         
     }//GEN-LAST:event_jTable3MouseClicked
 
@@ -1034,6 +1068,7 @@ public class aluguel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1064,6 +1099,7 @@ public class aluguel extends javax.swing.JFrame {
     private javax.swing.JLabel model22;
     private javax.swing.JLabel model23;
     private javax.swing.JLabel model24;
+    private javax.swing.JLabel model27;
     private javax.swing.JLabel model3;
     private javax.swing.JLabel model4;
     private javax.swing.JLabel model5;
@@ -1193,8 +1229,8 @@ public class aluguel extends javax.swing.JFrame {
         placa = model3.getText();
         danificado = model22.getText();
         int linha = jTable2.getSelectedRow(); // retorna a linha selecionada pelo usuario
-        dado = (jTable3.getValueAt(linha,1).toString());
-        cliente = (jTable3.getValueAt(linha, 0).toString());
+        cpf = model27.getText();
+        cliente = model23.getText();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
@@ -1209,14 +1245,18 @@ public class aluguel extends javax.swing.JFrame {
             }else if("  :  ".equals(horsaida)){
                 JOptionPane.showMessageDialog(null,"SELECIONE O HORARIO DA DEVOLUÇÃO \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
             }else if("Sim".equals(danificado)){
-                JOptionPane.showMessageDialog(null,"AUTOMÓVEL DANIFICADO \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
+              JOptionPane.showMessageDialog(null,"AUTOMÓVEL DANIFICADO \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
             }else if(model23.getText().equals("")){
-                JOptionPane.showMessageDialog(null,"ESCOLHA O CLIENTE \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
+                  JOptionPane.showMessageDialog(null,"ESCOLHA O CLIENTE \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
             }else if(model1.getText().equals("")){
                 JOptionPane.showMessageDialog(null,"ESCOLHA O AUTOMÓVEL \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
             }else{
-                int executeUpdate = stm.executeUpdate("INSERT into aluguel values('"+id+"','"+datasaida+"','"+horsaida+"','"+dataentrada+"','"+horentrada+"','"+automovel+"','"+placa+"','"+cliente+"','"+dado+"')");
+                int executeUpdate = stm.executeUpdate("INSERT into aluguel values('"+id+"','"+datasaida+"','"+horsaida+"','"+dataentrada+"','"+horentrada+"','"+automovel+"','"+placa+"','"+cliente+"','"+cpf+"')");
                 JOptionPane.showMessageDialog(null,"Aluguel efetuado com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                alugar = "Sim";
+                String sql = ("UPDATE automovel SET aluguel = '"+alugar+"' WHERE placa = '"+placa+"'");
+                PreparedStatement atualizar = con.prepareStatement(sql);
+                atualizar.executeUpdate();
                 limparDados();
             }
         } catch (ClassNotFoundException | SQLException ex) {

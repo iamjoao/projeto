@@ -24,7 +24,8 @@ public class entradasaida extends javax.swing.JFrame {
     private aluguel aluguel;
     private funcionario fun;
     private danificado dani;
-    private String dado, cpf;
+    private String dado, cpf, alugar, placa;
+    private int valor = 1;
     public entradasaida() {
         initComponents();
         
@@ -50,7 +51,7 @@ public class entradasaida extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
-        jPanel1 = new javax.swing.JPanel();
+        info = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
@@ -79,7 +80,7 @@ public class entradasaida extends javax.swing.JFrame {
         Background.setPreferredSize(new java.awt.Dimension(960, 500));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Menu.setBackground(new java.awt.Color(230, 255, 191));
+        Menu.setBackground(new java.awt.Color(92, 140, 20));
         Menu.setPreferredSize(new java.awt.Dimension(180, 500));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -252,7 +253,7 @@ public class entradasaida extends javax.swing.JFrame {
 
         Background.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
-        jPanel1.setBackground(new java.awt.Color(230, 255, 191));
+        info.setBackground(new java.awt.Color(230, 255, 191));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -374,30 +375,30 @@ public class entradasaida extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout infoLayout = new javax.swing.GroupLayout(info);
+        info.setLayout(infoLayout);
+        infoLayout.setHorizontalGroup(
+            infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(infoLayout.createSequentialGroup()
+                        .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(infoLayout.createSequentialGroup()
                                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(infoLayout.createSequentialGroup()
                                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(infoLayout.createSequentialGroup()
                                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(campoPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -407,31 +408,31 @@ public class entradasaida extends javax.swing.JFrame {
                                         .addComponent(campoEntrada)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        infoLayout.setVerticalGroup(
+            infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(campoCPF)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(campoPlaca)
                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(campoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11)
                     .addComponent(jButton12)
                     .addComponent(jButton13))
                 .addGap(36, 36, 36))
         );
 
-        Background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 780, 500));
+        Background.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 780, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -597,7 +598,13 @@ public class entradasaida extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14MouseExited
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        excluirDados();
+
+            try {
+                excluirDados();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Selecione o veículo", "Devolução", JOptionPane.INFORMATION_MESSAGE);
+            }
+        this.consultarDados("SELECT * FROM aluguel");
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void campoCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCPFActionPerformed
@@ -606,7 +613,15 @@ public class entradasaida extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        this.consultarDados("SELECT * FROM aluguel");
+        if(valor == 0){
+            Menu.setBackground(new Color(92, 140, 20));
+            info.setVisible(true);
+            valor = 1;
+        }else if(valor == 1){
+            Menu.setBackground(new Color(230, 255, 191));
+            info.setVisible(false);
+            valor = 0;
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void campoPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPlacaActionPerformed
@@ -685,6 +700,7 @@ public class entradasaida extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField campoEntrada;
     private javax.swing.JTextField campoPlaca;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JPanel info;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -700,7 +716,6 @@ public class entradasaida extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
@@ -741,12 +756,17 @@ public class entradasaida extends javax.swing.JFrame {
     public void excluirDados(){
         Connection con;
         int linha = jTable1.getSelectedRow(); 
-        cpf = ((jTable1.getValueAt(linha,3).toString())); 
+        placa = ((jTable1.getValueAt(linha,3).toString()));
         try {  
             con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
-            String sql = ("DELETE FROM aluguel WHERE placa = '"+cpf+"'");
+            String sql = ("DELETE FROM aluguel WHERE placa = '"+placa+"'");
             PreparedStatement atualizar = con.prepareStatement(sql);
             atualizar.executeUpdate();
+            
+            alugar = "Não";
+            String banco = ("UPDATE automovel SET aluguel = '"+alugar+"' WHERE placa = '"+placa+"'");
+            PreparedStatement atualiza = con.prepareStatement(banco);
+            atualiza.executeUpdate();
             JOptionPane.showMessageDialog(null,"Entrada efetuada com sucesso!!!!","Entrada", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Erro na alteração!!!!","Erro", JOptionPane.ERROR_MESSAGE);

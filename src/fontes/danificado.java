@@ -267,19 +267,19 @@ public class danificado extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(579, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
-        Background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 780, 500));
+        Background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 200, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -293,6 +293,7 @@ public class danificado extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
@@ -395,7 +396,7 @@ public class danificado extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        this.consultarDados("SELECT * FROM automovel ORDER BY id ASC");
+        this.consultarDados("SELECT * FROM automovel WHERE danificado = 'Sim'");
     }//GEN-LAST:event_formWindowOpened
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -456,23 +457,25 @@ public class danificado extends javax.swing.JFrame {
     public void consultarDados(String sql){
         try
         {
-                Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/projeto","root","");
-             PreparedStatement banco = (PreparedStatement)con.prepareStatement(sql);
-             banco.execute(); 
-             ResultSet dados = banco.executeQuery(sql);
+              
+            Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/projeto","root","");
+            PreparedStatement banco = (PreparedStatement)con.prepareStatement(sql);
+            banco.execute(); 
+            ResultSet dados = banco.executeQuery(sql);
 
-             DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
-             model.setNumRows(0);
+            DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
 
-             while(dados.next())
-             {
-                 
-                 model.addRow(new Object[] 
-                 { 
-                    dados.getString("modelo"),
-                    dados.getString("placa")
-                    
-                 }); 
+            while(dados.next())
+            {
+                
+                model.addRow(new Object[] 
+                { 
+                   dados.getString("modelo"),
+                   dados.getString("placa")
+                   
+                });
+                danificado = dados.getString("danificado");
             } 
             banco.close();
             con.close();

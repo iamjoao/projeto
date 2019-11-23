@@ -653,9 +653,8 @@ public class funcionario extends javax.swing.JFrame {
         }else if(valor1 == 1){
              // ALTERAÇÃO DE COR DO PAINEL
              Funcionarios.setBackground(new Color(230, 255, 191));
-
             Cadastro.setVisible(false);
-            valor = 0;
+            valor1 = 0;
        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -679,7 +678,7 @@ public class funcionario extends javax.swing.JFrame {
             while(res.next()){
                 if (res.getString("cpf") == null ? cpf == null : res.getString("cpf").equals(cpf)){
                     campoNome.setText(res.getString("nome"));
-                    caixaCargo.setSelectedItem(1);
+                    caixaCargo.setSelectedItem(res.getString("cargo"));
                     campoIdade.setText(res.getString("idade"));
                     campoRG.setText(res.getString("rg"));
                     campoCPF.setText(res.getString("cpf"));

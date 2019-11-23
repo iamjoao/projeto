@@ -18,7 +18,7 @@ public class principal extends javax.swing.JFrame {
     private entradasaida es;
     public int valor = 0, valor1 = 0, id;
     private String modelo, marca, placa, portas, ano, malas, preco, cambio,
-            pessoas, banco, autonomia, combustivel, peso, tam, km, air, ar, direcao, trava, data, cor, danificado, dado;
+            pessoas, banco, autonomia, combustivel, peso, tam, km, air, ar, direcao, trava, data, cor, danificado,alugar, dado;
     public principal() {
         initComponents();
 //        automoveis p1 = new automoveis();
@@ -31,6 +31,7 @@ public class principal extends javax.swing.JFrame {
         caixaCombinacao();
         Veiculos.setVisible(false);
         Cadastro.setVisible(false);
+        alugar = "Não";
         setIconImage(getIconImage());
         
     }
@@ -1063,26 +1064,27 @@ public class principal extends javax.swing.JFrame {
 //                int masc = res.getInt("marca");
                 if (res.getString("placa") == null ? dado == null : res.getString("placa").equals(dado)) {
                     campoModelo.setText(res.getString("modelo"));
-                    caixaMarca.setSelectedItem("marca");
+                    caixaMarca.setSelectedItem(res.getString("marca"));
                     campoPlaca.setText(res.getString("placa"));
                     campoAno.setText(res.getString("ano"));
                     campoPreco.setText(res.getString("preco"));
-                    caixaPortas.setSelectedItem("portas");
+                    caixaPortas.setSelectedItem(res.getString("portas"));
                     campoPortamalas.setText(res.getString("litroPortaMalas"));
-                    caixaCambio.setSelectedItem("cambio");
+                    caixaCambio.setSelectedItem(res.getString("cambio"));
                     campoOcupantes.setText(res.getString("capacidadePessoas"));
-                    caixaBanco.setSelectedItem("banco");
+                    caixaBanco.setSelectedItem(res.getString("banco"));
                     campoAutonomia.setText(res.getString("autonomia"));
                     campoKilometragem.setText(res.getString("kilometragem"));
-                    caixaAirbag.setSelectedItem("airbag");
-                    caixaAr.setSelectedItem("arCondicionado");
-                    caixaDirecao.setSelectedItem("direcaoHidraulica");
-                    caixaTrava.setSelectedItem("travaEletrica");
+                    caixaAirbag.setSelectedItem(res.getString("airbag"));
+                    caixaAr.setSelectedItem(res.getString("arCondicionado"));
+                    caixaDirecao.setSelectedItem(res.getString("direcaoHidraulica"));
+                    caixaTrava.setSelectedItem(res.getString("travaEletrica"));
                     campoData.setText(res.getString("dataInspecao"));
                     campoCor.setText(res.getString("cor"));
-                    caixaCombustivel.setSelectedItem("combustivel");
+                    caixaCombustivel.setSelectedItem(res.getString("combustivel"));
                     campoPeso.setText(res.getString("peso"));
                     campoTamanho.setText(res.getString("tamanho"));
+                    caixaDanificado.setSelectedItem(res.getString("danificado"));
                     
                 }
             }
@@ -1343,7 +1345,7 @@ public class principal extends javax.swing.JFrame {
             }else{
                 int executeUpdate = stm.executeUpdate("INSERT into automovel values('"+id+"','"+preco+"','"+placa+"','"+ano+"','"+cor+"','"+modelo+"','"+marca+"'"
                     + ",'"+portas+"','"+malas+"','"+cambio+"','"+pessoas+"','"+banco+"','"+autonomia+"','"+combustivel+"','"+peso+"'"
-                    + ",'"+tam+"','"+km+"','"+air+"','"+ar+"','"+direcao+"','"+trava+"','"+data+"','"+danificado+"')");
+                    + ",'"+tam+"','"+km+"','"+air+"','"+ar+"','"+direcao+"','"+trava+"','"+data+"','"+alugar+"','"+danificado+"')");
                 JOptionPane.showMessageDialog(null,"Cadastro efetuado com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
                 limparDados();
             }

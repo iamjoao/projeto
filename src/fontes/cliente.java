@@ -1,14 +1,12 @@
 package fontes;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Toolkit;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 
 
 public class cliente extends javax.swing.JFrame {
@@ -394,7 +392,7 @@ public class cliente extends javax.swing.JFrame {
 
         jPanel4.add(cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, -1, 500));
 
-        Menu.setBackground(new java.awt.Color(230, 255, 191));
+        Menu.setBackground(new java.awt.Color(92, 140, 20));
         Menu.setPreferredSize(new java.awt.Dimension(180, 500));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
