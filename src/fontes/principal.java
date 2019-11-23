@@ -14,10 +14,11 @@ public class principal extends javax.swing.JFrame {
     private funcionario fun;
     private login login;
     private aluguel aluguel;
-    private String dado;  
+    private danificado dani;
+    private entradasaida es;
     public int valor = 0, valor1 = 0, id;
     private String modelo, marca, placa, portas, ano, malas, preco, cambio,
-            pessoas, banco, autonomia, combustivel, peso, tam, km, air, ar, direcao, trava, data, cor, danificado;
+            pessoas, banco, autonomia, combustivel, peso, tam, km, air, ar, direcao, trava, data, cor, danificado, dado;
     public principal() {
         initComponents();
 //        automoveis p1 = new automoveis();
@@ -196,6 +197,11 @@ public class principal extends javax.swing.JFrame {
                 jButton4MouseExited(evt);
             }
         });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
@@ -223,6 +229,11 @@ public class principal extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton6MouseExited(evt);
+            }
+        });
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -313,7 +324,15 @@ public class principal extends javax.swing.JFrame {
             new String [] {
                 "Marcas"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -328,7 +347,15 @@ public class principal extends javax.swing.JFrame {
             new String [] {
                 "Carros", "Placa"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable2MouseClicked(evt);
@@ -1100,6 +1127,20 @@ public class principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         excluirDados();
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        es = new entradasaida();
+        es.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        dani = new danificado();
+        dani.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
     
     /**
      * @param args the command line arguments

@@ -9,15 +9,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class aluguel extends javax.swing.JFrame {
     private principal prin;
     private cliente clin;
     private funcionario fun;
+    private entradasaida es;
+    private danificado dani;
     private login login;
-    private String dado, dados1;
-    private int valor = 0, valor1 = 0;
+    private String dado, dados1, datasaida, dataentrada, horsaida, horentrada, automovel, cliente, placa, danificado;
+    private int valor = 0, valor1 = 0, id;
     public aluguel() {
         initComponents();
         Alugar.setVisible(false);
@@ -95,13 +98,13 @@ public class aluguel extends javax.swing.JFrame {
         model23 = new javax.swing.JLabel();
         model24 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        Dsaida = new javax.swing.JFormattedTextField();
+        Dentrada = new javax.swing.JFormattedTextField();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        Hsaida = new javax.swing.JFormattedTextField();
         jLabel27 = new javax.swing.JLabel();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        Hentrada = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(960, 500));
@@ -155,6 +158,11 @@ public class aluguel extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jButton4.setText("Entrada/Saída");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
@@ -168,6 +176,11 @@ public class aluguel extends javax.swing.JFrame {
         jButton6.setBackground(new java.awt.Color(255, 255, 255));
         jButton6.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jButton6.setText("Veículo danificado");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setBackground(new java.awt.Color(255, 255, 255));
         jButton7.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
@@ -231,7 +244,15 @@ public class aluguel extends javax.swing.JFrame {
             new String [] {
                 "Marcas"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -246,7 +267,15 @@ public class aluguel extends javax.swing.JFrame {
             new String [] {
                 "Carros", "Placa"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable2MouseClicked(evt);
@@ -261,7 +290,15 @@ public class aluguel extends javax.swing.JFrame {
             new String [] {
                 "Cliente", "CPF"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable3MouseClicked(evt);
@@ -371,7 +408,6 @@ public class aluguel extends javax.swing.JFrame {
 
         model1.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         model1.setForeground(new java.awt.Color(255, 0, 0));
-        model1.setText("Modelo:");
 
         model2.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         model2.setForeground(new java.awt.Color(255, 0, 0));
@@ -459,7 +495,6 @@ public class aluguel extends javax.swing.JFrame {
 
         model23.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         model23.setForeground(new java.awt.Color(255, 0, 0));
-        model23.setText("Modelo:");
 
         model24.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         model24.setText("CLIENTE:");
@@ -468,24 +503,24 @@ public class aluguel extends javax.swing.JFrame {
         jLabel24.setText("Data do Aluguel:");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            Dsaida.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+        Dsaida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
+                DsaidaActionPerformed(evt);
             }
         });
 
         try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            Dentrada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField2.addActionListener(new java.awt.event.ActionListener() {
+        Dentrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField2ActionPerformed(evt);
+                DentradaActionPerformed(evt);
             }
         });
 
@@ -493,30 +528,30 @@ public class aluguel extends javax.swing.JFrame {
         jLabel25.setText("Data da Devolução:");
 
         jLabel26.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        jLabel26.setText("Data do Aluguel:");
+        jLabel26.setText("Horário do Aluguel:");
 
         try {
-            jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+            Hsaida.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField3.addActionListener(new java.awt.event.ActionListener() {
+        Hsaida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField3ActionPerformed(evt);
+                HsaidaActionPerformed(evt);
             }
         });
 
         jLabel27.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        jLabel27.setText("Data da Devolução:");
+        jLabel27.setText("Horário da Devolução:");
 
         try {
-            jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+            Hentrada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField4.addActionListener(new java.awt.event.ActionListener() {
+        Hentrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField4ActionPerformed(evt);
+                HentradaActionPerformed(evt);
             }
         });
 
@@ -612,8 +647,8 @@ public class aluguel extends javax.swing.JFrame {
                                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(Hentrada, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(Hsaida, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(7, 7, 7))))
                         .addGap(33, 33, 33))
                     .addGroup(AlugarLayout.createSequentialGroup()
@@ -621,17 +656,17 @@ public class aluguel extends javax.swing.JFrame {
                             .addGroup(AlugarLayout.createSequentialGroup()
                                 .addComponent(model24, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(model23, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(model23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(AlugarLayout.createSequentialGroup()
                                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Dsaida, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(AlugarLayout.createSequentialGroup()
                                     .addComponent(jLabel25)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(Dentrada, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(161, 161, 161))))
         );
         AlugarLayout.setVerticalGroup(
             AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -743,14 +778,14 @@ public class aluguel extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Dsaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Hsaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AlugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Dentrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Hentrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jButton8)
@@ -820,7 +855,6 @@ public class aluguel extends javax.swing.JFrame {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
-        limparDados();
         Alugar.setVisible(true);
         Veiculos.setBackground(new Color(92, 140, 20));
         valor = 1;
@@ -857,7 +891,7 @@ public class aluguel extends javax.swing.JFrame {
                     model19.setText(res.getString("combustivel"));
                     model20.setText(res.getString("peso"));
                     model21.setText(res.getString("tamanho"));
-
+                    model22.setText(res.getString("danificado"));
                 }
             }
         } catch (ClassNotFoundException ex) {
@@ -894,23 +928,38 @@ public class aluguel extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        inserirDados();
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+    private void DsaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DsaidaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+    }//GEN-LAST:event_DsaidaActionPerformed
 
-    private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
+    private void DentradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DentradaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField2ActionPerformed
+    }//GEN-LAST:event_DentradaActionPerformed
 
-    private void jFormattedTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField3ActionPerformed
+    private void HsaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HsaidaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField3ActionPerformed
+    }//GEN-LAST:event_HsaidaActionPerformed
 
-    private void jFormattedTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField4ActionPerformed
+    private void HentradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HentradaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField4ActionPerformed
+    }//GEN-LAST:event_HentradaActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        es = new entradasaida();
+        es.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        dani = new danificado();
+        dani.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -950,6 +999,10 @@ public class aluguel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Alugar;
     private javax.swing.JPanel Background;
+    private javax.swing.JFormattedTextField Dentrada;
+    private javax.swing.JFormattedTextField Dsaida;
+    private javax.swing.JFormattedTextField Hentrada;
+    private javax.swing.JFormattedTextField Hsaida;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel Veiculos;
     private javax.swing.Box.Filler filler1;
@@ -961,10 +1014,6 @@ public class aluguel extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1128,5 +1177,50 @@ public class aluguel extends javax.swing.JFrame {
         model19.setText("");
         model20.setText("");
         model21.setText("");
+        model22.setText("");
+        model23.setText("");
+        Dsaida.setText("");
+        Dentrada.setText("");
+        Hsaida.setText("");
+        Hentrada.setText("");
+    }
+    public void inserirDados(){
+        datasaida = Dsaida.getText();
+        dataentrada = Dentrada.getText();
+        horentrada = Hsaida.getText();
+        horsaida = Hentrada.getText();
+        automovel = model1.getText();
+        placa = model3.getText();
+        danificado = model22.getText();
+        int linha = jTable2.getSelectedRow(); // retorna a linha selecionada pelo usuario
+        dado = (jTable3.getValueAt(linha,1).toString());
+        cliente = (jTable3.getValueAt(linha, 0).toString());
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projeto", "root", "");
+            Statement stm = con.createStatement();
+            
+            if("  /  /    ".equals(datasaida)){
+                JOptionPane.showMessageDialog(null,"DIGITE A DATA DO ALUGUEL \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
+            }else if("  /  /    ".equals(dataentrada)){
+                JOptionPane.showMessageDialog(null,"SELECIONE A DATA DA DEVOLUÇÃO \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
+            }else if("  :  ".equals(horentrada)){
+                JOptionPane.showMessageDialog(null,"DIGITE O HORARIO DO ALUGUEL \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
+            }else if("  :  ".equals(horsaida)){
+                JOptionPane.showMessageDialog(null,"SELECIONE O HORARIO DA DEVOLUÇÃO \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
+            }else if("Sim".equals(danificado)){
+                JOptionPane.showMessageDialog(null,"AUTOMÓVEL DANIFICADO \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
+            }else if(model23.getText().equals("")){
+                JOptionPane.showMessageDialog(null,"ESCOLHA O CLIENTE \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
+            }else if(model1.getText().equals("")){
+                JOptionPane.showMessageDialog(null,"ESCOLHA O AUTOMÓVEL \n","Aluguel", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                int executeUpdate = stm.executeUpdate("INSERT into aluguel values('"+id+"','"+datasaida+"','"+horsaida+"','"+dataentrada+"','"+horentrada+"','"+automovel+"','"+placa+"','"+cliente+"','"+dado+"')");
+                JOptionPane.showMessageDialog(null,"Aluguel efetuado com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                limparDados();
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Erro na locação do carro!!!!","Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

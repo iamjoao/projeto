@@ -18,6 +18,8 @@ public class funcionario extends javax.swing.JFrame {
     private cliente clin;
     private login login;
     private aluguel aluguel;
+    private entradasaida es;
+    private danificado dani;
     private int valor=0, valor1=0, id;
     private String nome,cargo, idade, rg, cpf, telefone, email, senha, endereco, num, bairro;
     public funcionario() {
@@ -91,7 +93,7 @@ public class funcionario extends javax.swing.JFrame {
         Background.setPreferredSize(new java.awt.Dimension(960, 500));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Menu.setBackground(new java.awt.Color(92, 140, 20));
+        Menu.setBackground(new java.awt.Color(230, 255, 191));
         Menu.setPreferredSize(new java.awt.Dimension(180, 500));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -159,6 +161,11 @@ public class funcionario extends javax.swing.JFrame {
                 jButton4MouseExited(evt);
             }
         });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
@@ -186,6 +193,11 @@ public class funcionario extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton6MouseExited(evt);
+            }
+        });
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -281,7 +293,15 @@ public class funcionario extends javax.swing.JFrame {
             new String [] {
                 "Funcionários", "CPF"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -857,6 +877,20 @@ public class funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         excluirDados();
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        es = new entradasaida();
+        es.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        dani = new danificado();
+        dani.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
                                        
     /**
      * @param args the command line arguments
