@@ -7,6 +7,7 @@
 package fontes;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -28,6 +29,7 @@ public class danificado extends javax.swing.JFrame {
     private String danificado;
     public danificado() {
         initComponents();
+        setIconImage(getIconImage());
     }
 
     /** This method is called from within the constructor to
@@ -454,6 +456,10 @@ public class danificado extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+    public final java.awt.Image getIconImage(){
+        java.awt.Image ICONE = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagens/logo60px.png"));
+        return ICONE;
+    }
     public void consultarDados(String sql){
         try
         {

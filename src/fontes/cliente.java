@@ -1,9 +1,11 @@
 package fontes;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.image.Image;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,6 +26,7 @@ public class cliente extends javax.swing.JFrame {
         opcoes.setVisible(true);
         cadastro.setVisible(false);
         prin = new principal();
+        setIconImage(getIconImage());
     }
 
     /**
@@ -588,9 +591,11 @@ public class cliente extends javax.swing.JFrame {
         jButton13.setVisible(false);
         jButton14.setVisible(false);
         if (valor == 0) {
+            opcoes.setBackground(new Color(92, 140, 20));
             cadastro.setVisible(true);
             valor = 1;
         }else if(valor == 1){
+            opcoes.setBackground(new Color(230, 255, 191));
             cadastro.setVisible(false);
             valor = 0;
         }
@@ -622,9 +627,12 @@ public class cliente extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         if(valor1 == 0){
+            Menu.setBackground(new Color(92, 140, 20));
             opcoes.setVisible(true);
             valor1 = 1;
         }else if(valor1 == 1){
+            opcoes.setBackground(new Color(230, 255, 191));
+            Menu.setBackground(new Color(230, 255, 191));
             opcoes.setVisible(false);
             cadastro.setVisible(false);
             valor1 = 0;
@@ -655,6 +663,7 @@ public class cliente extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
+        opcoes.setBackground(new Color(92, 140, 20));
         cadastro.setVisible(true);
         jButton11.setVisible(false);
         jButton12.setVisible(false);
@@ -892,7 +901,11 @@ public class cliente extends javax.swing.JFrame {
     private javax.swing.JLabel model;
     private javax.swing.JPanel opcoes;
     // End of variables declaration//GEN-END:variables
-
+    
+    public final java.awt.Image getIconImage(){
+        java.awt.Image ICONE = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagens/logo60px.png"));
+        return ICONE;
+    }
     public void consultarDados(String sql){
         try
         {

@@ -942,9 +942,11 @@ public class principal extends javax.swing.JFrame {
         }
         DadosLogin d = new DadosLogin();
         String cargo = d.getLogin();
-//        if(!"Gerente".equals(cargo)){
-//            jButton8.setEnabled(false);
-//        }
+        if(!"Gerente".equals(cargo)){
+            jButton8.setEnabled(false);
+            jButton13.setEnabled(false);
+            jButton14.setEnabled(false);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -1174,7 +1176,7 @@ public class principal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new principal().setVisible(true);
+                new login().setVisible(true);
             }
         });
     }

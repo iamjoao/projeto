@@ -24,6 +24,13 @@ public class funcionario extends javax.swing.JFrame {
     private String nome,cargo, idade, rg, cpf, telefone, email, senha, endereco, num, bairro;
     public funcionario() {
         initComponents();
+        DadosLogin d = new DadosLogin();
+        String cargo = d.getLogin();
+        if(!"Gerente".equals(cargo)){
+            jButton14.setEnabled(false);
+            jButton13.setEnabled(false);
+            jButton8.setEnabled(false);
+        }
         prin = new principal();
         clin = new cliente();
         login = new login();
@@ -74,8 +81,8 @@ public class funcionario extends javax.swing.JFrame {
         campoBairro = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(960, 500));
@@ -313,7 +320,7 @@ public class funcionario extends javax.swing.JFrame {
         Funcionarios.setLayout(FuncionariosLayout);
         FuncionariosLayout.setHorizontalGroup(
             FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FuncionariosLayout.createSequentialGroup()
+            .addGroup(FuncionariosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(FuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
@@ -390,6 +397,18 @@ public class funcionario extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel9.setText("Senha:");
 
+        campoSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoSenhaActionPerformed(evt);
+            }
+        });
+
+        campoEndereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEnderecoActionPerformed(evt);
+            }
+        });
+
         jLabel15.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel15.setText("Endereço:");
 
@@ -398,6 +417,12 @@ public class funcionario extends javax.swing.JFrame {
 
         jLabel18.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jLabel18.setText("Bairro");
+
+        campoBairro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoBairroActionPerformed(evt);
+            }
+        });
 
         jButton11.setBackground(new java.awt.Color(255, 255, 255));
         jButton11.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
@@ -437,27 +462,6 @@ public class funcionario extends javax.swing.JFrame {
             }
         });
 
-        jButton13.setBackground(new java.awt.Color(255, 255, 255));
-        jButton13.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
-        jButton13.setText("ALTERAR");
-        jButton13.setBorder(null);
-        jButton13.setMaximumSize(new java.awt.Dimension(89, 29));
-        jButton13.setMinimumSize(new java.awt.Dimension(89, 29));
-        jButton13.setPreferredSize(new java.awt.Dimension(89, 37));
-        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton13MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton13MouseExited(evt);
-            }
-        });
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-
         jButton14.setBackground(new java.awt.Color(255, 255, 255));
         jButton14.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
         jButton14.setText("EXCLUIR");
@@ -477,13 +481,34 @@ public class funcionario extends javax.swing.JFrame {
             }
         });
 
+        jButton13.setBackground(new java.awt.Color(255, 255, 255));
+        jButton13.setFont(new java.awt.Font("Agency FB", 0, 24)); // NOI18N
+        jButton13.setText("ALTERAR");
+        jButton13.setBorder(null);
+        jButton13.setMaximumSize(new java.awt.Dimension(55, 29));
+        jButton13.setMinimumSize(new java.awt.Dimension(55, 29));
+        jButton13.setPreferredSize(new java.awt.Dimension(89, 37));
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton13MouseExited(evt);
+            }
+        });
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CadastroLayout = new javax.swing.GroupLayout(Cadastro);
         Cadastro.setLayout(CadastroLayout);
         CadastroLayout.setHorizontalGroup(
             CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CadastroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(CadastroLayout.createSequentialGroup()
                         .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -514,12 +539,11 @@ public class funcionario extends javax.swing.JFrame {
                             .addComponent(campoNumero)
                             .addComponent(campoEndereco)
                             .addComponent(campoBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)))
-                    .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                        .addComponent(jButton13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         CadastroLayout.setVerticalGroup(
             CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -568,7 +592,7 @@ public class funcionario extends javax.swing.JFrame {
                 .addGroup(CadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(campoBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -576,10 +600,10 @@ public class funcionario extends javax.swing.JFrame {
                 .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(200, 200, 200))
         );
 
-        Background.add(Cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 300, 500));
+        Background.add(Cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 310, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -589,7 +613,7 @@ public class funcionario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -628,6 +652,7 @@ public class funcionario extends javax.swing.JFrame {
             valor = 0;
             valor1 = 0;
         }
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -693,6 +718,7 @@ public class funcionario extends javax.swing.JFrame {
         } catch (Exception e) {
             
         }
+        
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void campoRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRGActionPerformed
@@ -742,10 +768,9 @@ public class funcionario extends javax.swing.JFrame {
             }else if("".equals(bairro)){
                 JOptionPane.showMessageDialog(null,"DIGITE O BAIRRO DO CLIENTE \n","Modelo", JOptionPane.INFORMATION_MESSAGE);
             }else{
-                int executeUpdate = stm.executeUpdate("INSERT into funcionario values('"+id+"','"+nome+"','"+cargo+"','"+idade+"','"+rg+"','"+cpf+"','"+telefone+"'"
-                    + ",'"+email+"','"+senha+"','"+endereco+"','"+num+"','"+bairro+"')");
+                int executeUpdate = stm.executeUpdate("INSERT into funcionario values('"+id+"','"+nome+"','"+cargo+"','"+idade+"','"+rg+"','"+cpf+"','"+telefone+"','"+email+"','"+senha+"','"+endereco+"','"+num+"','"+bairro+"')");
                 JOptionPane.showMessageDialog(null,"Cadastro efetuado com sucesso!!!!","Sucesso", JOptionPane.INFORMATION_MESSAGE);
-//                limparDados();
+                limparDados();
             }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
@@ -890,6 +915,18 @@ public class funcionario extends javax.swing.JFrame {
         dani.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void campoBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoBairroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoBairroActionPerformed
+
+    private void campoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoSenhaActionPerformed
+
+    private void campoEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEnderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoEnderecoActionPerformed
                                        
     /**
      * @param args the command line arguments
